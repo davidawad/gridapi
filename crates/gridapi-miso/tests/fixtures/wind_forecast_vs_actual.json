@@ -1,0 +1,28 @@
+{
+ "instance": [
+  {
+   "ForecastDateTimeEST": "2026-11-18 12:00:00 AM",
+   "ForecastHourEndingEST": "1",
+   "ForecastValue": "26886.33",
+   "ActualDateTimeEST": "2026-11-18 12:00:00 AM",
+   "ActualHourEndingEST": "1",
+   "ActualValue": "28833.20"
+  },
+  {
+   "ForecastDateTimeEST": "2026-11-18 1:00:00 AM",
+   "ForecastHourEndingEST": "2",
+   "ForecastValue": "27258.18",
+   "ActualDateTimeEST": null,
+   "ActualHourEndingEST": null,
+   "ActualValue": null
+  },
+  {
+   "ForecastDateTimeEST": "2026-11-18 2:00:00 AM",
+   "ForecastHourEndingEST": "3",
+   "ForecastValue": "32906.44",
+   "ActualDateTimeEST": null,
+   "ActualHourEndingEST": null,
+   "ActualValue": null
+  }
+ ]
+}

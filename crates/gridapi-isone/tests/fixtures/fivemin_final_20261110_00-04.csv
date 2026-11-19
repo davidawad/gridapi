@@ -1,0 +1,12 @@
+"C","Five-Minute Locational Marginal Prices"
+"C","Filename: lmp_5min_final20261110_00-04.csv"
+"C","Report for: 11/10/2026 - 11/10/2026"
+"C","Report generated: 11/13/2026 16:13:04 EST"
+"C","Note: The Roseton congestion component is the sum of the NYISO congestion adder (if applicable) and the ISO-NE congestion component"
+"H","Location ID","Local Time","Energy Component","Congestion Component","Loss Component","LMP"
+"H","Number","Time","$/MWh","$/MWh","$/MWh","$/MWh"
+"D",321,00:00:00,34.4,0.0,-0.4,34.00
+"D",4000,00:00:00,34.4,0.0,0.36,34.76
+"D",321,00:05:00,25.80,0.0,-0.35,25.45
+"D",4000,00:05:00,25.78,0.0,0.24,26.02
+"T","4 lines"

@@ -1,0 +1,311 @@
+{
+ "message": "Report successfully retrieved.",
+ "responseCode": "200",
+ "localTimestamp": "2026-11-18 00:46:08 MST",
+ "return": {
+  "BcIntertie": {
+   "Allocations": [
+    {
+     "flowgate": false,
+     "he": "1",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "BC_IMPORT",
+      "reason": "",
+      "atc": 732,
+      "trmTotal": 69,
+      "ttc": 1106,
+      "trmSystem": 69,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2024-11-15 11:06:59 MST"
+     },
+     "export": {
+      "transferType": "BC_EXPORT",
+      "reason": "",
+      "atc": 1218,
+      "trmTotal": 69,
+      "ttc": 638,
+      "trmSystem": 69,
+      "trmAllocation": 0,
+      "grossOffer": 497,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 20:38:40 MST"
+     }
+    },
+    {
+     "flowgate": false,
+     "he": "2",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "BC_IMPORT",
+      "reason": "",
+      "atc": 732,
+      "trmTotal": 69,
+      "ttc": 1106,
+      "trmSystem": 69,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2024-11-16 11:06:51 MST"
+     },
+     "export": {
+      "transferType": "BC_EXPORT",
+      "reason": "",
+      "atc": 1218,
+      "trmTotal": 69,
+      "ttc": 638,
+      "trmSystem": 69,
+      "trmAllocation": 0,
+      "grossOffer": 497,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 20:38:40 MST"
+     }
+    }
+   ]
+  },
+  "MatlIntertie": {
+   "Allocations": [
+    {
+     "flowgate": false,
+     "he": "1",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "MATL_IMPORT",
+      "reason": "",
+      "atc": 377,
+      "trmTotal": 14,
+      "ttc": 281,
+      "trmSystem": 14,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2024-11-15 11:06:59 MST"
+     },
+     "export": {
+      "transferType": "MATL_EXPORT",
+      "reason": "",
+      "atc": 283,
+      "trmTotal": 14,
+      "ttc": 389,
+      "trmSystem": 14,
+      "trmAllocation": 0,
+      "grossOffer": 190,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:38:40 MST"
+     }
+    },
+    {
+     "flowgate": false,
+     "he": "2",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "MATL_IMPORT",
+      "reason": "",
+      "atc": 377,
+      "trmTotal": 14,
+      "ttc": 281,
+      "trmSystem": 14,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2024-11-16 11:06:51 MST"
+     },
+     "export": {
+      "transferType": "MATL_EXPORT",
+      "reason": "",
+      "atc": 283,
+      "trmTotal": 14,
+      "ttc": 389,
+      "trmSystem": 14,
+      "trmAllocation": 0,
+      "grossOffer": 190,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:53:41 MST"
+     }
+    }
+   ]
+  },
+  "SkIntertie": {
+   "Allocations": [
+    {
+     "flowgate": false,
+     "he": "1",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "SK_IMPORT",
+      "reason": "",
+      "atc": 126,
+      "trmTotal": 0,
+      "ttc": 126,
+      "trmSystem": 0,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2024-11-15 11:06:59 MST"
+     },
+     "export": {
+      "transferType": "SK_EXPORT",
+      "reason": "",
+      "atc": 126,
+      "trmTotal": 0,
+      "ttc": 126,
+      "trmSystem": 0,
+      "trmAllocation": 0,
+      "grossOffer": 50,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 17:38:40 MST"
+     }
+    },
+    {
+     "flowgate": false,
+     "he": "2",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "SK_IMPORT",
+      "reason": "",
+      "atc": 126,
+      "trmTotal": 0,
+      "ttc": 126,
+      "trmSystem": 0,
+      "trmAllocation": 0,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2024-11-16 11:06:51 MST"
+     },
+     "export": {
+      "transferType": "SK_EXPORT",
+      "reason": "",
+      "atc": 126,
+      "trmTotal": 0,
+      "ttc": 126,
+      "trmSystem": 0,
+      "trmAllocation": 0,
+      "grossOffer": 50,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 17:38:40 MST"
+     }
+    }
+   ]
+  },
+  "BcMatlFlowgate": {
+   "links": [],
+   "Allocations": [
+    {
+     "flowgate": true,
+     "he": "1",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "BC_MATL_IMPORT",
+      "reason": "ISO rules Section 205.9 Limit",
+      "atc": 349,
+      "trmTotal": 581,
+      "ttc": 1012,
+      "trmSystem": 581,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:47:40 MST"
+     },
+     "export": {
+      "transferType": "BC_MATL_EXPORT",
+      "reason": "",
+      "atc": 900,
+      "trmTotal": 43,
+      "ttc": 638,
+      "trmSystem": 43,
+      "grossOffer": 687,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:38:40 MST"
+     }
+    },
+    {
+     "flowgate": true,
+     "he": "2",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "BC_MATL_IMPORT",
+      "reason": "ISO rules Section 205.9 Limit",
+      "atc": 349,
+      "trmTotal": 581,
+      "ttc": 1012,
+      "trmSystem": 581,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:47:40 MST"
+     },
+     "export": {
+      "transferType": "BC_MATL_EXPORT",
+      "reason": "",
+      "atc": 900,
+      "trmTotal": 43,
+      "ttc": 638,
+      "trmSystem": 43,
+      "grossOffer": 687,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:53:41 MST"
+     }
+    }
+   ]
+  },
+  "SystemlFlowgate": {
+   "links": [],
+   "Allocations": [
+    {
+     "flowgate": true,
+     "he": "1",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "SYSTEM_IMPORT",
+      "reason": "",
+      "atc": 1507,
+      "trmTotal": 43,
+      "ttc": 1645,
+      "trmSystem": 43,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2024-11-15 11:06:59 MST"
+     },
+     "export": {
+      "transferType": "SYSTEM_EXPORT",
+      "reason": "",
+      "atc": 995,
+      "trmTotal": 43,
+      "ttc": 1175,
+      "trmSystem": 43,
+      "grossOffer": 737,
+      "effectiveLocalTime": "2026-11-16 00:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:38:40 MST"
+     }
+    },
+    {
+     "flowgate": true,
+     "he": "2",
+     "date": "2026-11-16",
+     "import": {
+      "transferType": "SYSTEM_IMPORT",
+      "reason": "",
+      "atc": 1507,
+      "trmTotal": 43,
+      "ttc": 1645,
+      "trmSystem": 43,
+      "grossOffer": 0,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2024-11-16 11:06:51 MST"
+     },
+     "export": {
+      "transferType": "SYSTEM_EXPORT",
+      "reason": "",
+      "atc": 995,
+      "trmTotal": 43,
+      "ttc": 1175,
+      "trmSystem": 43,
+      "grossOffer": 737,
+      "effectiveLocalTime": "2026-11-16 01:00:00 MST",
+      "updatedLocalTime": "2026-11-15 21:53:41 MST"
+     }
+    }
+   ]
+  }
+ }
+}

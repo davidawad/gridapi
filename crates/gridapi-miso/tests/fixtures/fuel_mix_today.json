@@ -1,0 +1,80 @@
+{
+ "RefId": "18-Nov-2026 - Interval 01:15 EST",
+ "TotalMW": "0",
+ "Fuel": {
+  "Type": [
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Battery Storage",
+    "ACT": "-396",
+    "FUEL_CATEGORY": "Battery Storage  (-396 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Coal",
+    "ACT": "17341",
+    "FUEL_CATEGORY": "Coal  (17,341 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Imports",
+    "ACT": "-101",
+    "FUEL_CATEGORY": "Imports (-101 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Natural Gas",
+    "ACT": "20842",
+    "FUEL_CATEGORY": "Natural Gas  (20,842 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Nuclear",
+    "ACT": "9052",
+    "FUEL_CATEGORY": "Nuclear  (9,052 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Other",
+    "ACT": "370",
+    "FUEL_CATEGORY": "Other  (370 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Solar",
+    "ACT": "0",
+    "FUEL_CATEGORY": "Solar  (0 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:00:00 AM",
+    "CATEGORY": "Wind",
+    "ACT": "22374",
+    "FUEL_CATEGORY": "Wind  (22,374 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:05:00 AM",
+    "CATEGORY": "Battery Storage",
+    "ACT": "-432",
+    "FUEL_CATEGORY": "Battery Storage  (-432 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:05:00 AM",
+    "CATEGORY": "Coal",
+    "ACT": "17222",
+    "FUEL_CATEGORY": "Coal  (17,222 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:05:00 AM",
+    "CATEGORY": "Imports",
+    "ACT": "-447",
+    "FUEL_CATEGORY": "Imports (-447 MW)"
+   },
+   {
+    "INTERVALEST": "2026-11-18 12:05:00 AM",
+    "CATEGORY": "Natural Gas",
+    "ACT": "21264",
+    "FUEL_CATEGORY": "Natural Gas  (21,264 MW)"
+   }
+  ]
+ }
+}

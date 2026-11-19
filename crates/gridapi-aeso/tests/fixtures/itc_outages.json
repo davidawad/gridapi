@@ -1,0 +1,80 @@
+{
+ "message": "Successfully retrieved Outages.",
+ "responseCode": "200",
+ "localTimestamp": "2026-11-18 00:46:10 MST",
+ "return": {
+  "Outages": {
+   "Outage": [
+    {
+     "element": "Path 1 Outage - AIES Islanding",
+     "affectedIntertieOrFlowgate": [
+      {
+       "displayValue": "BC/MATL",
+       "affectedLines": [
+        "BC_MATL"
+       ]
+      },
+      {
+       "displayValue": "BC",
+       "affectedLines": [
+        "BC"
+       ]
+      },
+      {
+       "displayValue": "MATL",
+       "affectedLines": [
+        "MATL"
+       ]
+      }
+     ],
+     "fromInLocalTime": "2026-08-24 09:00",
+     "toInLocalTime": "2026-09-02 00:02"
+    },
+    {
+     "element": "MATL Outage",
+     "affectedIntertieOrFlowgate": [
+      {
+       "displayValue": "BC",
+       "affectedLines": [
+        "BC"
+       ]
+      },
+      {
+       "displayValue": "MATL",
+       "affectedLines": [
+        "MATL"
+       ]
+      }
+     ],
+     "fromInLocalTime": "2026-08-24 09:00",
+     "toInLocalTime": "2026-09-02 00:33"
+    },
+    {
+     "element": "1201L outage",
+     "affectedIntertieOrFlowgate": [
+      {
+       "displayValue": "BC/MATL",
+       "affectedLines": [
+        "BC_MATL"
+       ]
+      },
+      {
+       "displayValue": "BC",
+       "affectedLines": [
+        "BC"
+       ]
+      },
+      {
+       "displayValue": "MATL",
+       "affectedLines": [
+        "MATL"
+       ]
+      }
+     ],
+     "fromInLocalTime": "2026-08-24 09:00",
+     "toInLocalTime": "2026-09-02 00:02"
+    }
+   ]
+  }
+ }
+}

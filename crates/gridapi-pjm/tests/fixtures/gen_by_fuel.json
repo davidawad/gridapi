@@ -1,0 +1,62 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.pjm.com/api/v1/gen_by_fuel?RowCount=3&Order=Asc&StartRow=1&IsActiveMetadata=True&Fields=datetime_beginning_ept%2Cdatetime_beginning_utc%2Cfuel_percentage_of_total%2Cfuel_type%2Cis_renewable%2Cmw&datetime_beginning_ept=11%2F17%2F2026%2000%3A00to11%2F17%2F2026%2023%3A59"
+    },
+    {
+      "rel": "next",
+      "href": "https://api.pjm.com/api/v1/gen_by_fuel?RowCount=3&Order=Asc&StartRow=4&IsActiveMetadata=True&Fields=datetime_beginning_ept%2Cdatetime_beginning_utc%2Cfuel_percentage_of_total%2Cfuel_type%2Cis_renewable%2Cmw&datetime_beginning_ept=11%2F17%2F2026%2000%3A00to11%2F17%2F2026%2023%3A59"
+    },
+    {
+      "rel": "metadata",
+      "href": "https://api.pjm.com/api/v1/gen_by_fuel/metadata"
+    }
+  ],
+  "items": [
+    {
+      "datetime_beginning_utc": "2026-11-17T05:00:00",
+      "datetime_beginning_ept": "2026-11-17T00:00:00",
+      "fuel_type": "Coal",
+      "mw": 21791.4,
+      "fuel_percentage_of_total": 0.192,
+      "is_renewable": false
+    },
+    {
+      "datetime_beginning_utc": "2026-11-17T05:00:00",
+      "datetime_beginning_ept": "2026-11-17T00:00:00",
+      "fuel_type": "Gas",
+      "mw": 48196.4,
+      "fuel_percentage_of_total": 0.375,
+      "is_renewable": false
+    },
+    {
+      "datetime_beginning_utc": "2026-11-17T05:00:00",
+      "datetime_beginning_ept": "2026-11-17T00:00:00",
+      "fuel_type": "Hydro",
+      "mw": 553.5,
+      "fuel_percentage_of_total": 0.006,
+      "is_renewable": true
+    }
+  ],
+  "searchSpecification": {
+    "rowCount": 3,
+    "order": "Asc",
+    "startRow": 1,
+    "isActiveMetadata": true,
+    "fields": [
+      "datetime_beginning_ept",
+      "datetime_beginning_utc",
+      "fuel_percentage_of_total",
+      "fuel_type",
+      "is_renewable",
+      "mw"
+    ],
+    "filters": [
+      {
+        "datetime_beginning_ept": "11/17/2026 00:00to11/17/2026 23:59"
+      }
+    ]
+  },
+  "totalRows": 240
+}

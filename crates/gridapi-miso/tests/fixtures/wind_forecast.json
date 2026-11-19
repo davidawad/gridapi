@@ -1,0 +1,19 @@
+{
+ "Forecast": [
+  {
+   "DateTimeEST": "2026-11-18 12:00:00 AM",
+   "HourEndingEST": "1",
+   "Value": "26886.33"
+  },
+  {
+   "DateTimeEST": "2026-11-18 1:00:00 AM",
+   "HourEndingEST": "2",
+   "Value": "27258.18"
+  },
+  {
+   "DateTimeEST": "2026-11-18 2:00:00 AM",
+   "HourEndingEST": "3",
+   "Value": "32906.44"
+  }
+ ]
+}

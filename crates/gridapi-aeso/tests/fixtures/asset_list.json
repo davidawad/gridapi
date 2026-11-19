@@ -1,0 +1,16 @@
+{
+ "timestamp": "2026-11-18 06:23:24.745+0000",
+ "responseCode": "200",
+ "return": [
+  {
+   "asset_name": "AST1 Example",
+   "asset_ID": "AST1",
+   "asset_type": "SOURCE",
+   "operating_status": "Active",
+   "pool_participant_name": "Example Energy Inc.",
+   "pool_participant_ID": "PPI1",
+   "net_to_grid_asset_flag": "",
+   "asset_incl_storage_flag": ""
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "RefId": "18-Nov-2026 - Interval 01:05 EST",
+ "Constraint": [
+  {
+   "Name": "BASE_ZPFTCH",
+   "Period": "2026-11-18T01:05:00",
+   "Price": "-40.9",
+   "OVERRIDE": "0",
+   "CURVETYPE": "PERCENT",
+   "BP1": "100",
+   "PC1": "700",
+   "BP2": "102",
+   "PC2": "1000"
+  },
+  {
+   "Name": "Batesvil_Batesvil_115kV_FLO_Batesvil_LS_Power_23",
+   "Period": "2026-11-18T01:05:00",
+   "Price": "-4.45",
+   "OVERRIDE": "0",
+   "CURVETYPE": "PERCENT",
+   "BP1": "100",
+   "PC1": "700",
+   "BP2": "102",
+   "PC2": "1000"
+  },
+  {
+   "Name": "EA50008_JAXV_N_JAXV_N_SYLVNX3_A",
+   "Period": "2026-11-18T01:05:00",
+   "Price": "-314.11",
+   "OVERRIDE": "0",
+   "CURVETYPE": "PERCENT",
+   "BP1": "100",
+   "PC1": "700",
+   "BP2": "102",
+   "PC2": "1000"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "timestamp": "2026-11-18 06:46:16.199+0000",
+ "responseCode": "200",
+ "return": {
+  "System Marginal Price Report": [
+   {
+    "begin_datetime_utc": "2026-11-17 05:36",
+    "end_datetime_utc": "2026-11-17 06:00",
+    "begin_datetime_mpt": "2026-11-16 23:36",
+    "end_datetime_mpt": "2026-11-17 00:00",
+    "system_marginal_price": "30.61",
+    "volume": "30"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 05:33",
+    "end_datetime_utc": "2026-11-17 05:36",
+    "begin_datetime_mpt": "2026-11-16 23:33",
+    "end_datetime_mpt": "2026-11-16 23:36",
+    "system_marginal_price": "35.93",
+    "volume": "75"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 05:30",
+    "end_datetime_utc": "2026-11-17 05:33",
+    "begin_datetime_mpt": "2026-11-16 23:30",
+    "end_datetime_mpt": "2026-11-16 23:33",
+    "system_marginal_price": "46.10",
+    "volume": "85"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 05:11",
+    "end_datetime_utc": "2026-11-17 05:30",
+    "begin_datetime_mpt": "2026-11-16 23:11",
+    "end_datetime_mpt": "2026-11-16 23:30",
+    "system_marginal_price": "38.83",
+    "volume": "50"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 05:00",
+    "end_datetime_utc": "2026-11-17 05:11",
+    "begin_datetime_mpt": "2026-11-16 23:00",
+    "end_datetime_mpt": "2026-11-16 23:11",
+    "system_marginal_price": "44.11",
+    "volume": "100"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 04:18",
+    "end_datetime_utc": "2026-11-17 05:00",
+    "begin_datetime_mpt": "2026-11-16 22:18",
+    "end_datetime_mpt": "2026-11-16 23:00",
+    "system_marginal_price": "30.20",
+    "volume": "100"
+   }
+  ]
+ }
+}

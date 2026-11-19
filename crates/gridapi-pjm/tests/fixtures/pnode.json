@@ -1,0 +1,46 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.pjm.com/api/v1/pnode?RowCount=3&Order=Asc&StartRow=1&IsActiveMetadata=True&Fields=effective_date%2Cpnode_id%2Cpnode_name%2Cpnode_subtype%2Cpnode_type%2Ctermination_date%2Cvoltage_level%2Czone&pnode_id=51288"
+    },
+    {
+      "rel": "metadata",
+      "href": "https://api.pjm.com/api/v1/pnode/metadata"
+    }
+  ],
+  "items": [
+    {
+      "pnode_id": 51288,
+      "pnode_name": "WESTERN HUB",
+      "pnode_type": "AGGREGATE",
+      "pnode_subtype": "HUB",
+      "zone": null,
+      "voltage_level": null,
+      "effective_date": "1998-04-01T00:00:00",
+      "termination_date": "9999-12-31T00:00:00"
+    }
+  ],
+  "searchSpecification": {
+    "rowCount": 3,
+    "order": "Asc",
+    "startRow": 1,
+    "isActiveMetadata": true,
+    "fields": [
+      "effective_date",
+      "pnode_id",
+      "pnode_name",
+      "pnode_subtype",
+      "pnode_type",
+      "termination_date",
+      "voltage_level",
+      "zone"
+    ],
+    "filters": [
+      {
+        "pnode_id": "51288"
+      }
+    ]
+  },
+  "totalRows": 1
+}

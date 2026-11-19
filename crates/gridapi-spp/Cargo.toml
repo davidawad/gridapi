@@ -1,0 +1,48 @@
+[package]
+name = "gridapi-spp"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "GPL-3.0-or-later"
+description = "Async Rust client for SPP (Southwest Power Pool) public market data: the portal file browser (LMPs, load, generation mix) and chart feeds, with no account needed."
+readme = "README.md"
+keywords = ["spp", "lmp", "power-markets", "energy", "api-client"]
+categories = ["api-bindings", "asynchronous"]
+publish = false
+
+[features]
+default = []
+# Methods and variants that could not get a live pass and are therefore not in the default
+# build. Today: `Chart::GenMixSwpw` (`chart-api/gen-mix-swpw/asChart` answers HTTP 404 on
+# portal.spp.org, 2026-11-18; the SWPW generation mix is served by `generation_mix(Swpw, ..)`).
+unverified = []
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+csv = "1"
+fastrand = "2"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", default-features = false, features = ["time"] }
+tracing = "0.1"
+
+[dev-dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "io-util", "time"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"

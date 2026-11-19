@@ -1,0 +1,41 @@
+[package]
+name = "gridapi-pjm"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Async client for the PJM Data Miner 2 API (api.pjm.com): feed catalog, generic queries, typed LMP, load, generation and pnode feeds"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+publish = false
+keywords = ["pjm", "electricity", "lmp", "energy", "api-client"]
+categories = ["api-bindings"]
+include = ["src/**", "tests/**", "README.md"]
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+rand = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tracing = "0.1"
+tokio = { version = "1", default-features = false, features = ["time"] }
+
+[dev-dependencies]
+tokio = { version = "1", default-features = false, features = ["macros", "rt-multi-thread", "time"] }
+wiremock = "0.6"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"

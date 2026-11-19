@@ -1,0 +1,136 @@
+{
+ "MCPData": {
+  "RefId": "18-Nov-2026 - Interval 01:10 EST",
+  "MktDay": "11-18-2026",
+  "RealTimeMCP": {
+   "HourAndMin": "01:10",
+   "Zone": [
+    {
+     "number": "1",
+     "GenRegMCP": "11.14",
+     "GenSpinMCP": "0.12",
+     "GenSuppMCP": "0.01",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "11.14",
+     "DemandSpinMcp": "0.12",
+     "DemandSuppMcp": "0.01",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "2",
+     "GenRegMCP": "11.14",
+     "GenSpinMCP": "0.12",
+     "GenSuppMCP": "0.01",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "11.14",
+     "DemandSpinMcp": "0.12",
+     "DemandSuppMcp": "0.01",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    }
+   ]
+  },
+  "DayAheadMCP": {
+   "HourEnding": "2",
+   "Zone": [
+    {
+     "number": "1",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "2",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "3",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "4",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "5",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "6",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "7",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    },
+    {
+     "number": "8",
+     "GenRegMCP": "13.91",
+     "GenSpinMCP": "0.40",
+     "GenSuppMCP": "0.20",
+     "StrMcp": "0.00",
+     "DemandRegMcp": "13.91",
+     "DemandSpinMcp": "0.40",
+     "DemandSuppMcp": "0.20",
+     "RcpUpMcp": "0.00",
+     "RcpDownMcp": "0.00"
+    }
+   ]
+  }
+ }
+}

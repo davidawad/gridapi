@@ -1,0 +1,45 @@
+[package]
+name = "gridapi-gridstatus"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+license = "GPL-3.0-or-later"
+description = "Async Rust client for the Grid Status (gridstatus.io) hosted API: dataset catalog, metadata, generic and typed dataset queries, paging, throttling and retry."
+readme = "README.md"
+publish = false
+keywords = ["gridstatus", "electricity", "lmp", "ercot", "pjm"]
+categories = ["api-bindings", "asynchronous"]
+
+[features]
+default = []
+# Query setters no live request has used: `time_comparison`, `publish_time`,
+# `publish_time_start`, `publish_time_end` (none of the datasets the 15 + 8 request live budget
+# reached has a publish-time column). Off by default, so the default build exposes only what a
+# live query has verified.
+unverified = []
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "clock", "serde"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+thiserror = "2"
+tokio = { version = "1", default-features = false, features = ["time"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "io-util", "time", "sync"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"

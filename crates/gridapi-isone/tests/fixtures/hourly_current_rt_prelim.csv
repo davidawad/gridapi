@@ -1,0 +1,8 @@
+C,Hourly Preliminary Real-Time Locational Marginal Prices
+C,Filename: OI_hlatest_iso_20261118012006.csv
+C,Report generated 2026-11-18 01:20:06 EST
+H,Local Date,Local Time,Location ID,Energy Component,Congestion Component,Loss Component,LMP
+H,Date,Time,Label,$/MWh,$/MWh,$/MWh,$/MWh
+D,2026-11-18,01,321,39.48,0.0,-0.27,39.21
+D,2026-11-18,01,4000,39.48,0.0,0.51,39.99
+T,2 lines

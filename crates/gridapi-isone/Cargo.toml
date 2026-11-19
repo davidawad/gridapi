@@ -1,0 +1,56 @@
+[package]
+name = "gridapi-isone"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Async client for ISO New England market data: the keyless public ISO Express CSV reports and the authenticated Web Services API v1.1"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+publish = false
+keywords = ["iso-ne", "electricity", "lmp", "energy", "power-grid"]
+categories = ["api-bindings", "science"]
+
+[features]
+default = []
+# The authenticated Web Services API v1.1 (webservices.iso-ne.com): the `webservices` module
+# and `Credentials`. UNTESTED, no ISO Express account (sign-up asks for a phone number and
+# company), so it is off by default and the default build exposes only methods verified
+# against the live service.
+isone-webservices = []
+
+[dependencies]
+bytes = "1"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock", "serde"] }
+chrono-tz = "0.10"
+csv = "1"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip", "cookies"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", default-features = false, features = ["time"] }
+tracing = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+wiremock = "0.6"
+
+[[test]]
+name = "webservices"
+required-features = ["isone-webservices"]
+
+[[example]]
+name = "webservices"
+required-features = ["isone-webservices"]
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+# Every fallible fn returns the crate `Error`; documented once at the crate level.
+missing_errors_doc = "allow"
+module_name_repetitions = "allow"

@@ -1,0 +1,139 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.pjm.com/api/v1"
+    }
+  ],
+  "items": [
+    {
+      "id": 45,
+      "feedId": 6,
+      "name": "da_hrl_lmps",
+      "displayName": "Day-Ahead Hourly LMPs",
+      "description": "This feed contains hourly Day-Ahead Energy Market locational marginal pricing (LMP) data for all bus locations, including aggregates. RSS Notification for this feed contains Market Day. To enhance the performance of current data queries and to better handle the increasing volume, PJM has implemented an archiving solution for this posting. The archived data is still available, but has slightly less flexibility on querying parameters than the more recent data does. The details of the restrictions and expected results for several filter combinations are detailed in the https://pjm.com/markets-and-operations/etools/data-miner-2.aspx. Data for this feed is archived after two years.",
+      "category": "Locational Marginal Prices",
+      "firstAvailable": "2000-06-01T00:00:00",
+      "version": "1",
+      "internalName": "f_006_da_hrl_lmps",
+      "defaultSearchJson": "{\"rowCount\":25,\"startRow\":1,\"filters\":[{\"datetime_beginning_ept\":\"today\"},{\"row_is_current\":1}],\"sort\":\"datetime_beginning_ept\",\"order\":0}",
+      "fileLoadingMethod": "Version",
+      "postingFrequency": "Daily",
+      "postingDay": "Daily between 12:00 p.m. and 01:30 p.m.",
+      "retentionTime": "Indefinitely",
+      "isFrequentlyAccessed": "True",
+      "categoryOrdinal": 1,
+      "feedProductType": 3,
+      "created": "2016-11-10T14:42:49",
+      "updated": "2017-10-02T10:10:23",
+      "links": [
+        {
+          "rel": "feed",
+          "href": "https://api.pjm.com/api/v1/da_hrl_lmps"
+        },
+        {
+          "rel": "metadata",
+          "href": "https://api.pjm.com/api/v1/da_hrl_lmps/metadata"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "feedId": 108,
+      "name": "gen_by_fuel",
+      "displayName": "Generation by Fuel Type",
+      "description": "This data shows the fuel mix of generation resources operating under PJM direction for each hour",
+      "category": "Generation",
+      "firstAvailable": "2016-01-01T00:00:00",
+      "version": "1",
+      "internalName": "f_108_gen_by_fuel",
+      "defaultSearchJson": "{\"rowCount\": 25,\"startRow\": 1, \"filters\": [{\"datetime_beginning_ept\": \"today\" }  ], \"sort\": \"datetime_beginning_utc\", \"order\": 1  }",
+      "fileLoadingMethod": "Overwrite",
+      "postingFrequency": "Hourly",
+      "postingDay": "Hourly 15 minutes past the hour",
+      "retentionTime": "Indefinitely",
+      "isFrequentlyAccessed": "True",
+      "categoryOrdinal": 1,
+      "feedProductType": 3,
+      "created": "2017-01-27T11:53:26",
+      "updated": "2017-10-02T10:10:23",
+      "links": [
+        {
+          "rel": "feed",
+          "href": "https://api.pjm.com/api/v1/gen_by_fuel"
+        },
+        {
+          "rel": "metadata",
+          "href": "https://api.pjm.com/api/v1/gen_by_fuel/metadata"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "feedId": 111,
+      "name": "pnode",
+      "displayName": "Pricing Nodes",
+      "description": "This data contains master information on pnodes. A pnode is a single pricing node or subset of pricing nodes where a physical injection or withdrawal is modeled and for which a Locational Marginal Price is calculated and used for financial settlements.",
+      "category": "Reference Data",
+      "firstAvailable": "1998-04-01T00:00:00",
+      "version": "1",
+      "internalName": "f_111_pnode",
+      "defaultSearchJson": "{\"rowCount\": 25,\"startRow\": 1, \"filters\": [{ \"termination_date\":\"12/31/9999 exact\" }  ], \"sort\": \"pnode_id\", \"order\": 0  }",
+      "fileLoadingMethod": "Overwrite",
+      "postingFrequency": "Daily on Business Days",
+      "postingDay": "Daily at 01:00 p.m.",
+      "retentionTime": "Indefinitely",
+      "isFrequentlyAccessed": "False",
+      "categoryOrdinal": 1,
+      "feedProductType": 3,
+      "created": "2016-01-01T00:00:00",
+      "updated": "2017-10-02T10:10:23",
+      "links": [
+        {
+          "rel": "feed",
+          "href": "https://api.pjm.com/api/v1/pnode"
+        },
+        {
+          "rel": "metadata",
+          "href": "https://api.pjm.com/api/v1/pnode/metadata"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "feedId": 4,
+      "name": "rt_hrl_lmps",
+      "displayName": "Real-Time Hourly LMPs",
+      "description": "This feed contains hourly Real-Time Energy Market locational marginal pricing (LMP) data for all bus locations, including aggregates. Load-weighted average transmission zone and residual aggregate prices are estimates only. RSS Notification for this feed contains Market Day. To enhance the performance of current data queries and to better handle the increasing volume, PJM has implemented an archiving solution for this posting. The archived data is still available, but has slightly less flexibility on querying parameters than the more recent data does. The details of the restrictions and expected results for several filter combinations are detailed in the https://pjm.com/markets-and-operations/etools/data-miner-2.aspx. Data for this feed is archived after two years.",
+      "category": "Locational Marginal Prices",
+      "firstAvailable": "1998-04-01T00:00:00",
+      "version": "1",
+      "internalName": "f_004_rt_hrl_lmps",
+      "defaultSearchJson": "{\"rowCount\":25,\"startRow\":1,\"filters\":[{\"datetime_beginning_ept\":\"yesterday\"},{\"row_is_current\":1}],\"sort\":\"datetime_beginning_ept\",\"order\":0}",
+      "fileLoadingMethod": "version",
+      "postingFrequency": "Daily on Business Days",
+      "postingDay": "Daily between 11 a.m. and 12 p.m.",
+      "retentionTime": "Indefinitely",
+      "isFrequentlyAccessed": "True",
+      "categoryOrdinal": 1,
+      "feedProductType": 3,
+      "created": "2016-11-10T13:58:02",
+      "updated": "2017-10-02T10:10:23",
+      "links": [
+        {
+          "rel": "feed",
+          "href": "https://api.pjm.com/api/v1/rt_hrl_lmps"
+        },
+        {
+          "rel": "metadata",
+          "href": "https://api.pjm.com/api/v1/rt_hrl_lmps/metadata"
+        }
+      ]
+    }
+  ],
+  "searchSpecification": {
+    "rowCount": 2147483647,
+    "startRow": 1
+  },
+  "totalRows": 119
+}

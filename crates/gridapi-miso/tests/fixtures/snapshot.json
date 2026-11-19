@@ -1,0 +1,26 @@
+[
+ {
+  "t": "Forecasted Peak Demand (MW)",
+  "v": "78,768",
+  "d": "11/18/2026 12:00:00 AM EST",
+  "id": "0"
+ },
+ {
+  "t": "Current Demand (MW)",
+  "v": "70,688",
+  "d": "11/18/2026 1:05:00 AM EST",
+  "id": "1"
+ },
+ {
+  "t": "Marginal Energy Cost ($/MWh)",
+  "v": "$14.39",
+  "d": "11/18/2026 1:05:00 AM EST",
+  "id": "2"
+ },
+ {
+  "t": "Scheduled Imports (-) / Exports (+) (MW)",
+  "v": "802",
+  "d": "11/18/2026 1:03:00 AM EST",
+  "id": "3"
+ }
+]

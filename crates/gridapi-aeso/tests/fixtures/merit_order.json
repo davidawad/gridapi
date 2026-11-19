@@ -1,0 +1,160 @@
+{
+ "timestamp": "2026-11-18 06:23:45.844+0000",
+ "responseCode": "200",
+ "return": {
+  "data": [
+   {
+    "begin_dateTime_utc": "2026-09-01 06:00",
+    "begin_dateTime_mpt": "2026-09-01 00:00",
+    "energy_blocks": [
+     {
+      "import_or_export": "",
+      "asset_ID": "AST1",
+      "block_number": 1,
+      "block_price": "1363.22",
+      "from_MW": 4,
+      "to_MW": 7,
+      "block_size": 3,
+      "available_MW": 3,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "Y",
+      "offer_control": "Example Energy Inc."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST6",
+      "block_number": 1,
+      "block_price": "1363.22",
+      "from_MW": 3,
+      "to_MW": 6,
+      "block_size": 3,
+      "available_MW": 3,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "N",
+      "offer_control": "Example Power Corp."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST4",
+      "block_number": 6,
+      "block_price": "1363.22",
+      "from_MW": 69,
+      "to_MW": 67,
+      "block_size": 4,
+      "available_MW": 4,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "Y",
+      "offer_control": "Example Oil Inc."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST3",
+      "block_number": 0,
+      "block_price": "0.00",
+      "from_MW": 0,
+      "to_MW": 458,
+      "block_size": 465,
+      "available_MW": 458,
+      "dispatched?": "Y",
+      "dispatched_MW": 458,
+      "flexible?": "N",
+      "offer_control": "Example Solar LP"
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST5",
+      "block_number": 0,
+      "block_price": "0.00",
+      "from_MW": 0,
+      "to_MW": 439,
+      "block_size": 466,
+      "available_MW": 439,
+      "dispatched?": "Y",
+      "dispatched_MW": 439,
+      "flexible?": "Y",
+      "offer_control": "Example Wind LP"
+     }
+    ]
+   },
+   {
+    "begin_dateTime_utc": "2026-09-01 07:00",
+    "begin_dateTime_mpt": "2026-09-01 01:00",
+    "energy_blocks": [
+     {
+      "import_or_export": "",
+      "asset_ID": "AST6",
+      "block_number": 1,
+      "block_price": "1363.22",
+      "from_MW": 3,
+      "to_MW": 6,
+      "block_size": 3,
+      "available_MW": 3,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "N",
+      "offer_control": "Example Power Corp."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST1",
+      "block_number": 1,
+      "block_price": "1363.22",
+      "from_MW": 4,
+      "to_MW": 7,
+      "block_size": 3,
+      "available_MW": 3,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "Y",
+      "offer_control": "Example Energy Inc."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST4",
+      "block_number": 6,
+      "block_price": "1363.22",
+      "from_MW": 69,
+      "to_MW": 67,
+      "block_size": 4,
+      "available_MW": 4,
+      "dispatched?": "N",
+      "dispatched_MW": 0,
+      "flexible?": "Y",
+      "offer_control": "Example Oil Inc."
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST3",
+      "block_number": 0,
+      "block_price": "0.00",
+      "from_MW": 0,
+      "to_MW": 458,
+      "block_size": 465,
+      "available_MW": 458,
+      "dispatched?": "Y",
+      "dispatched_MW": 458,
+      "flexible?": "N",
+      "offer_control": "Example Solar LP"
+     },
+     {
+      "import_or_export": "",
+      "asset_ID": "AST5",
+      "block_number": 0,
+      "block_price": "0.00",
+      "from_MW": 0,
+      "to_MW": 439,
+      "block_size": 466,
+      "available_MW": 439,
+      "dispatched?": "Y",
+      "dispatched_MW": 439,
+      "flexible?": "Y",
+      "offer_control": "Example Wind LP"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "LMPData": {
+  "RefId": "18-Nov-2026 - Interval 01:10 EST",
+  "ExAnteLMP": {
+   "HourAndMin": "01:10",
+   "Hub": [
+    {
+     "name": "ARKANSAS.HUB",
+     "LMP": "-21.81",
+     "loss": "-0.53",
+     "congestion": "-41.41"
+    },
+    {
+     "name": "ILLINOIS.HUB",
+     "LMP": "8.21",
+     "loss": "-0.44",
+     "congestion": "-4.98"
+    },
+    {
+     "name": "INDIANA.HUB",
+     "LMP": "19.50",
+     "loss": "0.77",
+     "congestion": "11.04"
+    },
+    {
+     "name": "LOUISIANA.HUB",
+     "LMP": "16.85",
+     "loss": "0.10",
+     "congestion": "-1.94"
+    },
+    {
+     "name": "MICHIGAN.HUB",
+     "LMP": "30.02",
+     "loss": "0.49",
+     "congestion": "12.03"
+    },
+    {
+     "name": "MINN.HUB",
+     "LMP": "4.12",
+     "loss": "-0.08",
+     "congestion": "-8.89"
+    },
+    {
+     "name": "MS.HUB",
+     "LMP": "27.36",
+     "loss": "0.14",
+     "congestion": "5.17"
+    },
+    {
+     "name": "SWPP",
+     "LMP": "-9.64",
+     "loss": "-0.99",
+     "congestion": "-20.49"
+    },
+    {
+     "name": "TEXAS.HUB",
+     "LMP": "5.51",
+     "loss": "-0.79",
+     "congestion": "-6.89"
+    }
+   ]
+  }
+ }
+}

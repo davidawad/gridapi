@@ -1,0 +1,41 @@
+{
+  "feedMetadata": {
+    "id": 98,
+    "feedId": "220",
+    "name": "rt_unverified_hrl_lmps",
+    "displayName": "Real-Time Unverified Hourly LMPs",
+    "description": "(trimmed)",
+    "category": "Locational Marginal Prices",
+    "version": "0",
+    "internalName": "f_220_rt_unverified_hrl_lmps",
+    "defaultSearchJson": "{\"rowCount\": 25,\"startRow\": 1, \"filters\": [{\"datetime_beginning_ept\": \"LastHour\" }  ], \"sort\": \"datetime_beginning_ept\", \"order\": 1  }",
+    "fileLoadingMethod": "append only",
+    "postingFrequency": "Hourly",
+    "postingDay": "Hourly",
+    "retentionTime": "30 days",
+    "lastDataLoad": "2026-11-18T06:10:29.0411781",
+    "lastDataLoadEst": "2026-11-18T01:10:29.0411781-05:00",
+    "isFrequentlyAccessed": "False",
+    "created": "2020-10-28T17:05:46",
+    "updated": "2020-10-28T17:05:46",
+    "repostNotifications": [],
+    "links": [
+      {
+        "rel": "feed",
+        "href": "https://api.pjm.com/api/v1/rt_unverified_hrl_lmps"
+      },
+      {
+        "rel": "metadata",
+        "href": "https://api.pjm.com/api/v1/rt_unverified_hrl_lmps/metadata"
+      }
+    ],
+    "timeDurationUnit": 1,
+    "timeDurationIncrement": 15,
+    "categoryOrdinal": 1,
+    "feedProductType": 3
+  },
+  "code": "API_1005",
+  "message": "Search specification validation failed.",
+  "activityId": "66a1412c-8449-4bd9-bce1-9b7fdef86619",
+  "timestamp": "2026-11-18T06:12:38.3119506Z"
+}

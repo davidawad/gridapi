@@ -1,0 +1,5 @@
+# Energy units and market acronyms are not identifiers needing backticks.
+doc-valid-idents = ["MWh", "kWh", "MW", "LMP", "LMPs", "MCC", "MLC", "MEC", "MCP", "ACE", "WEIS", "SWPW", "EST", "CPT", "FiveMin", ".."]
+allow-expect-in-tests = true
+allow-unwrap-in-tests = true
+allow-panic-in-tests = true

@@ -1,0 +1,9 @@
+C,Five-Minute prelim Locational Marginal Prices
+C,Filename: OI_5min_prelim_iso_20261118011952.csv
+C,Report generated 2026-11-18 01:19:52 EST
+H,Location ID,Local Time,Energy Component,Congestion Component,Loss Component,LMP
+H,Label,Time,$/MWh,$/MWh,$/MWh,$/MWh
+D,321,2026-11-18 01:15:00,49.56,0.0,-0.44,49.12
+D,4000,2026-11-18 01:15:00,49.56,0.0,0.73,50.29
+D,4001,2026-11-18 01:15:00,49.56,0.0,-1.28,48.28
+T,3 lines

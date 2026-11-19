@@ -1,0 +1,29 @@
+[package]
+name = "gridapi-ercot"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Async Rust client for the ERCOT Public API (api.ercot.com): report catalog, paged queries, typed price/load/renewables helpers, archive download"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+publish = false
+keywords = ["ercot", "electricity", "power-grid", "api-client", "energy"]
+categories = ["api-bindings", "asynchronous"]
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+fastrand = "2"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "cookies", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["time", "sync"] }
+zip = { version = "9", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "io-util"] }
+wiremock = "0.6"
+
+[lints.rust]
+missing_docs = "warn"
+unsafe_code = "forbid"

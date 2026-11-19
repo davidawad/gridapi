@@ -1,0 +1,100 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.pjm.com/api/v1/rt_fivemin_hrl_lmps?RowCount=3&Order=Asc&StartRow=1&IsActiveMetadata=True&Fields=congestion_price_rt%2Cdatetime_beginning_ept%2Cdatetime_beginning_utc%2Cequipment%2Cmarginal_loss_price_rt%2Cpnode_id%2Cpnode_name%2Crow_is_current%2Csystem_energy_price_rt%2Ctotal_lmp_rt%2Ctype%2Cversion_nbr%2Cvoltage%2Czone&pnode_id=51288&datetime_beginning_ept=11%2F14%2F2026%2000%3A00to11%2F14%2F2026%2023%3A59&row_is_current=true"
+    },
+    {
+      "rel": "next",
+      "href": "https://api.pjm.com/api/v1/rt_fivemin_hrl_lmps?RowCount=3&Order=Asc&StartRow=4&IsActiveMetadata=True&Fields=congestion_price_rt%2Cdatetime_beginning_ept%2Cdatetime_beginning_utc%2Cequipment%2Cmarginal_loss_price_rt%2Cpnode_id%2Cpnode_name%2Crow_is_current%2Csystem_energy_price_rt%2Ctotal_lmp_rt%2Ctype%2Cversion_nbr%2Cvoltage%2Czone&pnode_id=51288&datetime_beginning_ept=11%2F14%2F2026%2000%3A00to11%2F14%2F2026%2023%3A59&row_is_current=true"
+    },
+    {
+      "rel": "metadata",
+      "href": "https://api.pjm.com/api/v1/rt_fivemin_hrl_lmps/metadata"
+    }
+  ],
+  "items": [
+    {
+      "datetime_beginning_utc": "2026-11-14T05:00:00",
+      "datetime_beginning_ept": "2026-11-14T00:00:00",
+      "pnode_id": 51288,
+      "pnode_name": "WESTERN HUB",
+      "voltage": null,
+      "equipment": null,
+      "type": "HUB",
+      "zone": null,
+      "system_energy_price_rt": 65.1,
+      "total_lmp_rt": 130.328565,
+      "congestion_price_rt": 63.460565,
+      "marginal_loss_price_rt": 1.768000,
+      "row_is_current": true,
+      "version_nbr": 1
+    },
+    {
+      "datetime_beginning_utc": "2026-11-14T05:05:00",
+      "datetime_beginning_ept": "2026-11-14T00:05:00",
+      "pnode_id": 51288,
+      "pnode_name": "WESTERN HUB",
+      "voltage": null,
+      "equipment": null,
+      "type": "HUB",
+      "zone": null,
+      "system_energy_price_rt": 32.13,
+      "total_lmp_rt": 43.079384,
+      "congestion_price_rt": 10.086795,
+      "marginal_loss_price_rt": 0.862589,
+      "row_is_current": true,
+      "version_nbr": 1
+    },
+    {
+      "datetime_beginning_utc": "2026-11-14T05:10:00",
+      "datetime_beginning_ept": "2026-11-14T00:10:00",
+      "pnode_id": 51288,
+      "pnode_name": "WESTERN HUB",
+      "voltage": null,
+      "equipment": null,
+      "type": "HUB",
+      "zone": null,
+      "system_energy_price_rt": 41.72,
+      "total_lmp_rt": 59.086881,
+      "congestion_price_rt": 16.593882,
+      "marginal_loss_price_rt": 0.772999,
+      "row_is_current": true,
+      "version_nbr": 1
+    }
+  ],
+  "searchSpecification": {
+    "rowCount": 3,
+    "order": "Asc",
+    "startRow": 1,
+    "isActiveMetadata": true,
+    "fields": [
+      "congestion_price_rt",
+      "datetime_beginning_ept",
+      "datetime_beginning_utc",
+      "equipment",
+      "marginal_loss_price_rt",
+      "pnode_id",
+      "pnode_name",
+      "row_is_current",
+      "system_energy_price_rt",
+      "total_lmp_rt",
+      "type",
+      "version_nbr",
+      "voltage",
+      "zone"
+    ],
+    "filters": [
+      {
+        "pnode_id": "51288"
+      },
+      {
+        "datetime_beginning_ept": "11/14/2026 00:00to11/14/2026 23:59"
+      },
+      {
+        "row_is_current": "true"
+      }
+    ]
+  },
+  "totalRows": 288
+}

@@ -1,0 +1,5 @@
+{
+ "timestamp": "2026-11-18T00:24:06.085751-06:00",
+ "message": "Report end date must be after begin date.",
+ "details": "uri=/ets-api/v1.1/price/poolPrice"
+}

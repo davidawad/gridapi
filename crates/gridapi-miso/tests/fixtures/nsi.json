@@ -1,0 +1,19 @@
+{
+ "instance": [
+  {
+   "timestamp": "2026-11-18 01:18:00",
+   "AECI": "277",
+   "LGEE": "60",
+   "MHEB": "-99",
+   "MISO": "908",
+   "ONT": "-735",
+   "PJM": "483",
+   "SOCO": "84",
+   "SPA": "0",
+   "SWPP": "679",
+   "TVA": "79"
+  }
+ ],
+ "RefId": "18-Nov-2026 - Interval 01:18 EST",
+ "MktDay": null
+}

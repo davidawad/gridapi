@@ -1,0 +1,73 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.pjm.com/api/v1/hrl_load_metered?RowCount=3&Order=Asc&StartRow=1&IsActiveMetadata=True&Fields=datetime_beginning_ept%2Cdatetime_beginning_utc%2Cis_verified%2Cload_area%2Cmkt_region%2Cmw%2Cnerc_region%2Czone&datetime_beginning_ept=11%2F15%2F2026%2000%3A00to11%2F15%2F2026%2023%3A59&zone=AE"
+    },
+    {
+      "rel": "next",
+      "href": "https://api.pjm.com/api/v1/hrl_load_metered?RowCount=3&Order=Asc&StartRow=4&IsActiveMetadata=True&Fields=datetime_beginning_ept%2Cdatetime_beginning_utc%2Cis_verified%2Cload_area%2Cmkt_region%2Cmw%2Cnerc_region%2Czone&datetime_beginning_ept=11%2F15%2F2026%2000%3A00to11%2F15%2F2026%2023%3A59&zone=AE"
+    },
+    {
+      "rel": "metadata",
+      "href": "https://api.pjm.com/api/v1/hrl_load_metered/metadata"
+    }
+  ],
+  "items": [
+    {
+      "datetime_beginning_utc": "2026-11-15T14:00:00",
+      "datetime_beginning_ept": "2026-11-15T09:00:00",
+      "nerc_region": "RFC",
+      "mkt_region": "MIDATL",
+      "zone": "AE",
+      "load_area": "AECO",
+      "mw": 877.303,
+      "is_verified": false
+    },
+    {
+      "datetime_beginning_utc": "2026-11-15T16:00:00",
+      "datetime_beginning_ept": "2026-11-15T11:00:00",
+      "nerc_region": "RFC",
+      "mkt_region": "MIDATL",
+      "zone": "AE",
+      "load_area": "AECO",
+      "mw": 469.027,
+      "is_verified": false
+    },
+    {
+      "datetime_beginning_utc": "2026-11-15T07:00:00",
+      "datetime_beginning_ept": "2026-11-15T02:00:00",
+      "nerc_region": "RFC",
+      "mkt_region": "MIDATL",
+      "zone": "AE",
+      "load_area": "AECO",
+      "mw": 701.763,
+      "is_verified": false
+    }
+  ],
+  "searchSpecification": {
+    "rowCount": 3,
+    "order": "Asc",
+    "startRow": 1,
+    "isActiveMetadata": true,
+    "fields": [
+      "datetime_beginning_ept",
+      "datetime_beginning_utc",
+      "is_verified",
+      "load_area",
+      "mkt_region",
+      "mw",
+      "nerc_region",
+      "zone"
+    ],
+    "filters": [
+      {
+        "datetime_beginning_ept": "11/15/2026 00:00to11/15/2026 23:59"
+      },
+      {
+        "zone": "AE"
+      }
+    ]
+  },
+  "totalRows": 48
+}

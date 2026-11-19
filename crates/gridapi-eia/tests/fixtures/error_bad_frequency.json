@@ -1,0 +1,1 @@
+{"error":"Invalid frequency 'bogus' provided. The only valid frequencies are 'hourly', and 'local-hourly'.","code":400}

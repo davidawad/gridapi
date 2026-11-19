@@ -1,0 +1,12 @@
+C,Hourly Preliminary Real-Time Locational Marginal Prices
+C,Filename: OI_hrolling_iso_20261118015353.csv
+C,Report generated 2026-11-18 01:53:53 EST
+H,Local Date,Local Time,Location ID,Energy Component,Congestion Component,Loss Component,LMP
+H,Date,Time,Label,$/MWh,$/MWh,$/MWh,$/MWh
+D,2026-11-17,23,321,42.18,0.0,-0.42,41.76
+D,2026-11-17,23,4000,42.18,0.0,0.49,42.67
+D,2026-11-17,24,321,34.28,0.0,0.0,34.28
+D,2026-11-17,24,4000,34.28,0.0,0.45,34.73
+D,2026-11-18,01,321,39.48,0.0,-0.27,39.21
+D,2026-11-18,01,4000,39.48,0.0,0.51,39.99
+T,6 lines

@@ -1,0 +1,40 @@
+[package]
+name = "gridapi-caiso"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Async client for the CAISO OASIS SingleZip API and the Today's Outlook feeds: typed LMP, load, AS price and node queries."
+license = "GPL-3.0-or-later"
+readme = "README.md"
+keywords = ["caiso", "oasis", "lmp", "electricity", "energy"]
+categories = ["api-bindings", "science"]
+publish = false
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+chrono-tz = "0.10"
+csv = "1"
+rand = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+roxmltree = "0.20"
+thiserror = "2"
+tokio = { version = "1", features = ["time"] }
+zip = { version = "9.5", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "net", "io-util", "test-util"] }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "warn"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"

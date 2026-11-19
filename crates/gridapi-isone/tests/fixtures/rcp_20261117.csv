@@ -1,0 +1,12 @@
+"C","Preliminary Real-Time Five-Minute Regulation Clearing Prices"
+"C","Filename: rt_fiveminutercp_prelim_20261117_20261117.csv"
+"C","Report for: 11/17/2026 - 11/17/2026"
+"C","Report generated: 11/18/2026 01:20:17 EST"
+"H","Local Time","Regulation Service Clearing Price","Regulation Capacity Clearing Price"
+"H","Time","$/MWh","$/MWh"
+"D","11/17/2026 00:00:01",0.04,120.89
+"D","11/17/2026 00:05:01",0.04,43.60
+"D","11/17/2026 00:10:01",0.01,25.88
+"D","11/17/2026 00:15:01",0.01,25.88
+"D","11/17/2026 00:20:01",0.01,25.88
+"T","5 lines"

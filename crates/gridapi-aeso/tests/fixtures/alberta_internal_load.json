@@ -1,0 +1,152 @@
+{
+ "timestamp": "2026-11-18 06:46:17.326+0000",
+ "responseCode": "200",
+ "return": {
+  "Actual Forecast Report": [
+   {
+    "begin_datetime_utc": "2026-11-16 06:00",
+    "begin_datetime_mpt": "2026-11-16 00:00",
+    "alberta_internal_load": "9188",
+    "forecast_alberta_internal_load": "7682"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 07:00",
+    "begin_datetime_mpt": "2026-11-16 01:00",
+    "alberta_internal_load": "7876",
+    "forecast_alberta_internal_load": "8265"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 08:00",
+    "begin_datetime_mpt": "2026-11-16 02:00",
+    "alberta_internal_load": "8709",
+    "forecast_alberta_internal_load": "9908"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 09:00",
+    "begin_datetime_mpt": "2026-11-16 03:00",
+    "alberta_internal_load": "7350",
+    "forecast_alberta_internal_load": "7294"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 10:00",
+    "begin_datetime_mpt": "2026-11-16 04:00",
+    "alberta_internal_load": "9760",
+    "forecast_alberta_internal_load": "7961"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 11:00",
+    "begin_datetime_mpt": "2026-11-16 05:00",
+    "alberta_internal_load": "9096",
+    "forecast_alberta_internal_load": "12075"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 12:00",
+    "begin_datetime_mpt": "2026-11-16 06:00",
+    "alberta_internal_load": "11981",
+    "forecast_alberta_internal_load": "10480"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 13:00",
+    "begin_datetime_mpt": "2026-11-16 07:00",
+    "alberta_internal_load": "12560",
+    "forecast_alberta_internal_load": "8842"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 14:00",
+    "begin_datetime_mpt": "2026-11-16 08:00",
+    "alberta_internal_load": "13995",
+    "forecast_alberta_internal_load": "8758"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 15:00",
+    "begin_datetime_mpt": "2026-11-16 09:00",
+    "alberta_internal_load": "14346",
+    "forecast_alberta_internal_load": "14733"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 16:00",
+    "begin_datetime_mpt": "2026-11-16 10:00",
+    "alberta_internal_load": "14924",
+    "forecast_alberta_internal_load": "15019"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 17:00",
+    "begin_datetime_mpt": "2026-11-16 11:00",
+    "alberta_internal_load": "14767",
+    "forecast_alberta_internal_load": "10211"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 18:00",
+    "begin_datetime_mpt": "2026-11-16 12:00",
+    "alberta_internal_load": "10541",
+    "forecast_alberta_internal_load": "9032"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 19:00",
+    "begin_datetime_mpt": "2026-11-16 13:00",
+    "alberta_internal_load": "11153",
+    "forecast_alberta_internal_load": "12897"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 20:00",
+    "begin_datetime_mpt": "2026-11-16 14:00",
+    "alberta_internal_load": "13391",
+    "forecast_alberta_internal_load": "12084"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 21:00",
+    "begin_datetime_mpt": "2026-11-16 15:00",
+    "alberta_internal_load": "11188",
+    "forecast_alberta_internal_load": "10284"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 22:00",
+    "begin_datetime_mpt": "2026-11-16 16:00",
+    "alberta_internal_load": "11164",
+    "forecast_alberta_internal_load": "12691"
+   },
+   {
+    "begin_datetime_utc": "2026-11-16 23:00",
+    "begin_datetime_mpt": "2026-11-16 17:00",
+    "alberta_internal_load": "7960",
+    "forecast_alberta_internal_load": "14296"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 00:00",
+    "begin_datetime_mpt": "2026-11-16 18:00",
+    "alberta_internal_load": "8893",
+    "forecast_alberta_internal_load": "14509"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 01:00",
+    "begin_datetime_mpt": "2026-11-16 19:00",
+    "alberta_internal_load": "7098",
+    "forecast_alberta_internal_load": "10292"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 02:00",
+    "begin_datetime_mpt": "2026-11-16 20:00",
+    "alberta_internal_load": "15341",
+    "forecast_alberta_internal_load": "10638"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 03:00",
+    "begin_datetime_mpt": "2026-11-16 21:00",
+    "alberta_internal_load": "7944",
+    "forecast_alberta_internal_load": "14744"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 04:00",
+    "begin_datetime_mpt": "2026-11-16 22:00",
+    "alberta_internal_load": "14730",
+    "forecast_alberta_internal_load": "7234"
+   },
+   {
+    "begin_datetime_utc": "2026-11-17 05:00",
+    "begin_datetime_mpt": "2026-11-16 23:00",
+    "alberta_internal_load": "13533",
+    "forecast_alberta_internal_load": "13815"
+   }
+  ]
+ }
+}

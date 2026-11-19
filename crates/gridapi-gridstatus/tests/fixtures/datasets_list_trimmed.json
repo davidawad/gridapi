@@ -1,0 +1,351 @@
+{
+ "status_code": 200,
+ "data": [
+  {
+   "id": "ercot_spp_day_ahead_hourly",
+   "name": "ERCOT SPP Day Ahead Hourly",
+   "description": "Settlement Point Prices in hourly intervals as reported by ERCOT from the day-ahead market run. These are derived from LMPs as well as price adders to calculate prices used in settlements. SPPs are calculated for Resource Nodes, Load Zones, and Hubs. \n\nThe location types present are:\n\n- *Trading Hub*\n- *Load Zone DC Tie*\n- *Resource Node*\n- *Load Zone*\n\n\ud83d\udca1 There are many fewer settlement point locations than buses. Keeping this in mind can help to slim down initial ERCOT analyses before turning to individual bus locations.",
+   "earliest_available_time_utc": "2010-12-01T06:00:00+00:00",
+   "latest_available_time_utc": "2026-11-19T05:00:00+00:00",
+   "source": "ercot",
+   "last_checked_time_utc": "2026-11-18T06:14:27+00:00",
+   "primary_key_columns": [
+    "interval_start_utc",
+    "location"
+   ],
+   "publish_time_column": null,
+   "time_index_column": "interval_start_utc",
+   "subseries_index_column": "location",
+   "all_columns": [
+    {
+     "name": "interval_start_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "interval_end_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "location",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "location_type",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "market",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "spp",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    }
+   ],
+   "number_of_rows_approximate": 96129312,
+   "table_type": "table",
+   "is_in_snowflake": true,
+   "data_frequency": "1_HOUR",
+   "source_url": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-190-CD",
+   "publication_frequency": null,
+   "is_published": true,
+   "created_at_utc": "2023-04-20T05:00:04+00:00",
+   "status": "active",
+   "popularity_rank": 1,
+   "is_in_clickhouse": true
+  },
+  {
+   "id": "pjm_lmp_day_ahead_hourly",
+   "name": "PJM LMP Day Ahead Hourly",
+   "description": "Day Ahead Hourly LMPs and component costs as reported by PJM.\n\nThe location types present are:\n\n- *GEN*\n- *ZONE*\n- *RESIDUAL_METERED_EDC*\n- *HUB*\n- *AGGREGATE*\n- *INTERFACE*\n- *EHV*\n- *EXT*\n- *LOAD*",
+   "earliest_available_time_utc": "2010-01-01T05:00:00+00:00",
+   "latest_available_time_utc": "2026-11-19T04:00:00+00:00",
+   "source": "pjm",
+   "last_checked_time_utc": "2026-11-18T06:14:10+00:00",
+   "primary_key_columns": [
+    "interval_start_utc",
+    "location"
+   ],
+   "publish_time_column": null,
+   "time_index_column": "interval_start_utc",
+   "subseries_index_column": "location",
+   "all_columns": [
+    {
+     "name": "interval_start_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "interval_end_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "market",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "location",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "location_id",
+     "type": "BIGINT",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "location_short_name",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "location_type",
+     "type": "VARCHAR",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": false
+    },
+    {
+     "name": "lmp",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "energy",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "congestion",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "loss",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    }
+   ],
+   "number_of_rows_approximate": 1758779520,
+   "table_type": "table",
+   "is_in_snowflake": true,
+   "data_frequency": "1_HOUR",
+   "source_url": "https://dataminer2.pjm.com/feed/da_hrl_lmps/definition",
+   "publication_frequency": null,
+   "is_published": true,
+   "created_at_utc": "2023-04-20T04:07:54+00:00",
+   "status": "active",
+   "popularity_rank": 2,
+   "is_in_clickhouse": true
+  },
+  {
+   "id": "ercot_fuel_mix",
+   "name": "ERCOT Fuel Mix",
+   "description": "Fuel Mix for ERCOT aligned to 5 minute intervals.\n\nERCOT reports instantaneous generation readings approximately every five minutes. This dataset resamples those readings to consistent five-minute intervals, averaging readings within each interval and linearly interpolating gaps.\n\nData before December 15, 2022 is sourced from [ERCOT\u2019s historical 15-minute generation totals](https://www.ercot.com/gridinfo/generation/index.html). These totals are converted from MWh to average MW, with the same value used for each of the three five-minute intervals.\n\nFor the readings before resampling, see [ERCOT Fuel Mix Instantaneous](https://www.gridstatus.io/datasets/ercot_fuel_mix_instantaneous).",
+   "earliest_available_time_utc": "2017-01-01T06:00:00+00:00",
+   "latest_available_time_utc": "2026-11-18T06:10:00+00:00",
+   "source": "ercot",
+   "last_checked_time_utc": "2026-11-18T06:14:50+00:00",
+   "primary_key_columns": [
+    "interval_start_utc"
+   ],
+   "publish_time_column": null,
+   "time_index_column": "interval_start_utc",
+   "subseries_index_column": null,
+   "all_columns": [
+    {
+     "name": "interval_start_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "interval_end_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "coal_and_lignite",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "hydro",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "nuclear",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "power_storage",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "solar",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "wind",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "natural_gas",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    },
+    {
+     "name": "other",
+     "type": "DOUBLE PRECISION",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    }
+   ],
+   "number_of_rows_approximate": 995156,
+   "table_type": "table",
+   "is_in_snowflake": true,
+   "data_frequency": "5_MINUTES",
+   "source_url": "https://www.ercot.com/gridmktinfo/dashboards/fuelmix",
+   "publication_frequency": null,
+   "is_published": true,
+   "created_at_utc": "2023-04-19T22:13:59+00:00",
+   "status": "active",
+   "popularity_rank": 6,
+   "is_in_clickhouse": true
+  },
+  {
+   "id": "ercot_load",
+   "name": "ERCOT Load",
+   "description": "Five-minute load as reported by ERCOT in real-time; contains systemwide demand.\n\nBeginning December 5th, 2025, with the implementation of RTC+B, ERCOT's real-time load reporting no longer includes wholesale storage charging.",
+   "earliest_available_time_utc": "2013-06-13T05:00:00+00:00",
+   "latest_available_time_utc": "2026-11-18T06:05:00+00:00",
+   "source": "ercot",
+   "last_checked_time_utc": "2026-11-18T06:14:50+00:00",
+   "primary_key_columns": [
+    "interval_start_utc"
+   ],
+   "publish_time_column": null,
+   "time_index_column": "interval_start_utc",
+   "subseries_index_column": null,
+   "all_columns": [
+    {
+     "name": "interval_start_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "interval_end_utc",
+     "type": "TIMESTAMP",
+     "is_date": false,
+     "is_numeric": false,
+     "is_datetime": true
+    },
+    {
+     "name": "load",
+     "type": "INTEGER",
+     "is_date": false,
+     "is_numeric": true,
+     "is_datetime": false
+    }
+   ],
+   "number_of_rows_approximate": 1378602,
+   "table_type": "table",
+   "is_in_snowflake": true,
+   "data_frequency": "5_MINUTES",
+   "source_url": "https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand",
+   "publication_frequency": null,
+   "is_published": true,
+   "created_at_utc": "2023-04-19T22:16:04+00:00",
+   "status": "active",
+   "popularity_rank": 15,
+   "is_in_clickhouse": true
+  }
+ ],
+ "meta": {
+  "page": 1,
+  "limit": null,
+  "page_size": null,
+  "hasNextPage": null,
+  "cursor": null
+ },
+ "dataset_metadata": {
+  "resample_conversion": {
+   "1_MINUTE": 60,
+   "5_MINUTES": 300,
+   "10_MINUTES": 600,
+   "15_MINUTES": 900,
+   "1_HOUR": 3600,
+   "1_DAY": 86400,
+   "1_DAY_MARKET": 86400,
+   "1_WEEK": 604800,
+   "1_MONTH": 2592000,
+   "1_YEAR": 31536000,
+   "IRREGULAR": -1
+  }
+ }
+}

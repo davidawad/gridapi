@@ -1,0 +1,32 @@
+{
+ "timestamp": "2026-11-18 06:39:51.144+0000",
+ "responseCode": "200",
+ "return": [
+  {
+   "pool_participant_name": "Example Participant LP",
+   "pool_participant_ID": "PPI2",
+   "corporate_contact": "1 Example St \n1 Example St \nExample City, Alberta A1A 1A1 \n Phone: 000-000-0000 \n Fax: 000-000-0000 \n Attn: Example Contact \n",
+   "agent_list": [
+    {
+     "agent_ID": "AGN1",
+     "agent_name": "Example Agent GP Inc."
+    },
+    {
+     "agent_ID": "AGN2",
+     "agent_name": "Example Marketing L.P."
+    }
+   ]
+  },
+  {
+   "pool_participant_name": "Example Participant LP",
+   "pool_participant_ID": "PPI3",
+   "corporate_contact": "1 Example St \n1 Example St \nExample City, Alberta A1A 1A1 \n Phone: 000-000-0000 \n Fax: 000-000-0000 \n Attn: Example Contact \n",
+   "agent_list": [
+    {
+     "agent_ID": "AGN3",
+     "agent_name": "Example Management L.P."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "timestamp": "2026-11-18 06:19:08.454+0000",
+ "responseCode": "200",
+ "return": {
+  "last_updated_datetime_utc": "2026-11-18 06:18",
+  "last_updated_datetime_mpt": "2026-11-18 00:18",
+  "asset_list": [
+   {
+    "asset": "AST13",
+    "fuel_type": "SOLAR",
+    "sub_fuel_type": "",
+    "maximum_capability": 140,
+    "net_generation": 0,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST12",
+    "fuel_type": "OTHER",
+    "sub_fuel_type": "",
+    "maximum_capability": 131,
+    "net_generation": 54,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST11",
+    "fuel_type": "WIND",
+    "sub_fuel_type": "",
+    "maximum_capability": 73,
+    "net_generation": 50,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST1",
+    "fuel_type": "GAS",
+    "sub_fuel_type": "SIMPLE_CYCLE",
+    "maximum_capability": 7,
+    "net_generation": 0,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST2",
+    "fuel_type": "GAS",
+    "sub_fuel_type": "SIMPLE_CYCLE",
+    "maximum_capability": 10,
+    "net_generation": 0,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST10",
+    "fuel_type": "GAS",
+    "sub_fuel_type": "COGENERATION",
+    "maximum_capability": 106,
+    "net_generation": 89,
+    "dispatched_contingency_reserve": 16
+   },
+   {
+    "asset": "AST9",
+    "fuel_type": "GAS",
+    "sub_fuel_type": "SIMPLE_CYCLE",
+    "maximum_capability": 63,
+    "net_generation": 0,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST8",
+    "fuel_type": "GAS",
+    "sub_fuel_type": "COGENERATION",
+    "maximum_capability": 195,
+    "net_generation": 123,
+    "dispatched_contingency_reserve": 0
+   },
+   {
+    "asset": "AST7",
+    "fuel_type": "ENERGY STORAGE",
+    "sub_fuel_type": "",
+    "maximum_capability": 20,
+    "net_generation": 0,
+    "dispatched_contingency_reserve": 16
+   }
+  ]
+ }
+}

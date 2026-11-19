@@ -1,0 +1,49 @@
+[package]
+name = "gridapi-eia"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "GPL-3.0-or-later"
+description = "Async Rust client for the U.S. EIA Open Data API v2 (api.eia.gov/v2): route browsing, generic paged data queries, typed EIA-930 / EIA-860M / retail-sales / natural-gas helpers, and keyless EIA-860M and EIA-930 bulk files"
+readme = "README.md"
+publish = false
+keywords = ["eia", "energy", "electricity", "grid", "api-client"]
+categories = ["api-bindings", "science"]
+
+[features]
+default = ["bulk"]
+# Keyless bulk files: EIA-860M xlsx workbooks and EIA-930 six-month CSVs.
+bulk = ["dep:calamine", "dep:csv"]
+
+[dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "gzip", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["time", "fs", "io-util", "rt"] }
+futures-util = { version = "0.3", default-features = false, features = ["std"] }
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+fastrand = "2"
+calamine = { version = "0.36", optional = true }
+csv = { version = "1", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "fs", "io-util"] }
+tiny_http = "0.12"
+tempfile = "3"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"
+struct_excessive_bools = "warn"

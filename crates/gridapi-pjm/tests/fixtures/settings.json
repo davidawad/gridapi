@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://api.pjm.com/api/v1",
+  "subscriptionKey": "FIXTURE_PUBLIC_KEY",
+  "registerUrl": "https://apiportal.pjm.com/",
+  "tool": "Data Miner 2"
+}

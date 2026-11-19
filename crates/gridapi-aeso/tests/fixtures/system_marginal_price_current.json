@@ -1,0 +1,14 @@
+{
+ "timestamp": "2026-11-18 06:46:01.448+0000",
+ "responseCode": "200",
+ "return": {
+  "System Marginal Price Report": [
+   {
+    "begin_datetime_utc": "2026-11-18 06:31",
+    "begin_datetime_mpt": "2026-11-18 00:31",
+    "system_marginal_price": "19.74",
+    "volume": "60"
+   }
+  ]
+ }
+}

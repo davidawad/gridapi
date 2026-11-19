@@ -1,0 +1,81 @@
+{
+ "lastUpdated": "2026-11-18 00:06:00-0600",
+ "monthlyCapacity": {
+  "Power Storage": 24878,
+  "Solar": 39789,
+  "Wind": 42407,
+  "Hydro": 746,
+  "Other": 0,
+  "Natural Gas": 46858,
+  "Coal and Lignite": 13984,
+  "Nuclear": 6657
+ },
+ "data": {
+  "2026-11-17": {
+   "2026-11-17 00:00:00-0600": {
+    "Coal and Lignite": {
+     "gen": 6730.5478258069
+    },
+    "Hydro": {
+     "gen": 76
+    },
+    "Nuclear": {
+     "gen": 5176.5887852201
+    },
+    "Other": {
+     "gen": 0
+    },
+    "Power Storage": {
+     "gen": -2311.89254271
+    },
+    "Solar": {
+     "gen": 0.255751123269308
+    },
+    "Wind": {
+     "gen": 5946.09491631593
+    },
+    "Natural Gas": {
+     "gen": 29484.10926060344
+    },
+    "Power Storage Charging": {
+     "gen": -2311.89254271
+    },
+    "Power Storage Discharging": {
+     "gen": 0
+    }
+   },
+   "2026-11-17 00:05:00-0600": {
+    "Coal and Lignite": {
+     "gen": 6483.7037312448
+    },
+    "Hydro": {
+     "gen": 109
+    },
+    "Nuclear": {
+     "gen": 3011.16262314256
+    },
+    "Other": {
+     "gen": 0
+    },
+    "Power Storage": {
+     "gen": -849.15882622093
+    },
+    "Solar": {
+     "gen": 0.208498221721092
+    },
+    "Wind": {
+     "gen": 8535.89068501985
+    },
+    "Natural Gas": {
+     "gen": 37412.000448021885
+    },
+    "Power Storage Charging": {
+     "gen": -849.15882622093
+    },
+    "Power Storage Discharging": {
+     "gen": 0
+    }
+   }
+  }
+ }
+}

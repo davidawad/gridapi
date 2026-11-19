@@ -1,0 +1,83 @@
+{
+ "LoadInfo": {
+  "RefId": "18-Nov-2026 - Interval 01:10 EST",
+  "ClearedMW": [
+   {
+    "ClearedMWHourly": {
+     "Hour": "1",
+     "Value": "74014"
+    }
+   },
+   {
+    "ClearedMWHourly": {
+     "Hour": "2",
+     "Value": "76373"
+    }
+   },
+   {
+    "ClearedMWHourly": {
+     "Hour": "3",
+     "Value": "62880"
+    }
+   },
+   {
+    "ClearedMWHourly": {
+     "Hour": "4",
+     "Value": "44631"
+    }
+   }
+  ],
+  "MediumTermLoadForecast": [
+   {
+    "Forecast": {
+     "HourEnding": "1",
+     "LoadForecast": "61309"
+    }
+   },
+   {
+    "Forecast": {
+     "HourEnding": "2",
+     "LoadForecast": "90522"
+    }
+   },
+   {
+    "Forecast": {
+     "HourEnding": "3",
+     "LoadForecast": "79221"
+    }
+   },
+   {
+    "Forecast": {
+     "HourEnding": "4",
+     "LoadForecast": "83561"
+    }
+   }
+  ],
+  "FiveMinTotalLoad": [
+   {
+    "Load": {
+     "Time": "00:00",
+     "Value": "73330"
+    }
+   },
+   {
+    "Load": {
+     "Time": "00:05",
+     "Value": "75978"
+    }
+   },
+   {
+    "Load": {
+     "Time": "00:10",
+     "Value": "88859"
+    }
+   },
+   {
+    "Load": {
+     "Time": "00:15",
+     "Value": "83868"
+    }
+   }
+  ]
+ }
+}

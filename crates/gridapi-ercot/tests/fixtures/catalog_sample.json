@@ -1,0 +1,392 @@
+{
+ "_embedded": {
+  "products": [
+   {
+    "emilId": "COPG-316",
+    "name": "Load Estimation Counts - Public",
+    "description": "Counts of ESIIDs and percentages of counts by MRE settled with actual meter data, estimated using historical meter data, and estimated using default load.",
+    "status": "Active",
+    "reportTypeId": 11130,
+    "audience": "Public",
+    "generationFrequency": "Chron - Daily",
+    "securityClassification": "Public",
+    "lastUpdated": "2026-02-09",
+    "firstRun": "2010-12-08",
+    "eceii": null,
+    "channel": "Public, EWS",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": null,
+    "xsdName": null,
+    "misPostingLocation": null,
+    "certificateRole": null,
+    "fileType": "csv",
+    "ddlName": null,
+    "misDisplayDuration": 31,
+    "archiveDuration": 2555,
+    "notificationType": null,
+    "contentType": "BINARY",
+    "downloadLimit": 638,
+    "lastPostDatetime": "2026-11-17T08:18:42",
+    "bundle": 0,
+    "protocolRules": {
+     "NP8": "https://www.ercot.com/mp/data-products?protocolRules=NP8",
+     "NP8.2(2)(c)(v)": "https://www.ercot.com/mp/data-products?protocolRules=NP8.2(2)(c)(v)"
+    },
+    "artifacts": [],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/copg-316"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/copg-316"
+     }
+    }
+   },
+   {
+    "emilId": "NP3-565-CD",
+    "name": "Seven-Day Load Forecast by Model and Weather Zone",
+    "description": "Hourly system-wide Mid-Term Load Forecasts (MTLFs) for all forecast models with an indicator for which forecast was in use by ERCOT at the time of publication for current day plus the next 7.",
+    "status": "Active",
+    "reportTypeId": 14837,
+    "audience": "Public",
+    "generationFrequency": "Chron - Hourly",
+    "securityClassification": "Public",
+    "lastUpdated": "2024-07-10",
+    "firstRun": "2017-06-28",
+    "eceii": "",
+    "channel": "Public,EWS,Data Portal",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "Current Day Reports XSD",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "zip,csv,xml",
+    "ddlName": "",
+    "misDisplayDuration": 7,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "DATA",
+    "downloadLimit": 638,
+    "lastPostDatetime": "2026-11-17T23:30:00",
+    "bundle": 1,
+    "protocolRules": {
+     "NP6.3.2(3)(b)": "https://www.ercot.com/mp/data-products?protocolRules=NP6.3.2(3)(b)"
+    },
+    "artifacts": [
+     {
+      "reportTypeId": 14837,
+      "displayName": "Seven-Day Load Forecast by Model and Weather Zone",
+      "_links": {
+       "endpoint": {
+        "href": "https://api.ercot.com/api/public-reports/np3-565-cd/lf_by_model_weather_zone"
+       }
+      }
+     }
+    ],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-565-cd"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np3-565-cd"
+     },
+     "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np3-565-cd"
+     }
+    }
+   },
+   {
+    "emilId": "NP4-180-ER",
+    "name": "Historical DAM Load Zone and Hub Prices",
+    "description": "Historical DAM Settlement Point Prices (SPPs) for each of the Hubs and Load Zones",
+    "status": "Active",
+    "reportTypeId": 13060,
+    "audience": "Public",
+    "generationFrequency": "Chron - Weekly",
+    "securityClassification": "Public",
+    "lastUpdated": "2026-02-09",
+    "firstRun": "2011-10-01",
+    "eceii": null,
+    "channel": "Public, EWS",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": null,
+    "xsdName": null,
+    "misPostingLocation": null,
+    "certificateRole": null,
+    "fileType": "zip, xlsx",
+    "ddlName": null,
+    "misDisplayDuration": 0,
+    "archiveDuration": 2555,
+    "notificationType": null,
+    "contentType": "BINARY",
+    "downloadLimit": 69,
+    "lastPostDatetime": "2026-11-15T08:01:47",
+    "bundle": 0,
+    "protocolRules": {
+     "NP4.5.3(2)(b)": "https://www.ercot.com/mp/data-products?protocolRules=NP4.5.3(2)(b)"
+    },
+    "artifacts": [],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-180-er"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np4-180-er"
+     }
+    }
+   },
+   {
+    "emilId": "NP4-190-CD",
+    "name": "DAM Settlement Point Prices",
+    "description": "The Settlement Point Prices for all Resource Nodes, Load Zones, and Trading Hubs from the Day-Ahead Market.",
+    "status": "Active",
+    "reportTypeId": 12331,
+    "audience": "Public",
+    "generationFrequency": "Event - Per DAM Run",
+    "securityClassification": "Public",
+    "lastUpdated": "2024-07-10",
+    "firstRun": "2010-11-29",
+    "eceii": "",
+    "channel": "Public,EWS,Data Portal",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "Current Day Reports XSD",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "zip,csv,xml",
+    "ddlName": "",
+    "misDisplayDuration": 31,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "DATA",
+    "downloadLimit": 407,
+    "lastPostDatetime": "2026-11-17T12:32:45",
+    "bundle": 1,
+    "protocolRules": {
+     "NP4.5.3(2)(b)": "https://www.ercot.com/mp/data-products?protocolRules=NP4.5.3(2)(b)"
+    },
+    "artifacts": [
+     {
+      "reportTypeId": 12331,
+      "displayName": "DAM Settlement Point Prices",
+      "_links": {
+       "endpoint": {
+        "href": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices"
+       }
+      }
+     }
+    ],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-190-cd"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np4-190-cd"
+     },
+     "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd"
+     }
+    }
+   },
+   {
+    "emilId": "NP6-345-CD",
+    "name": "Actual System Load by Weather Zone",
+    "description": "Report of Actual hourly load data by weather zone and ERCOT total.",
+    "status": "Active",
+    "reportTypeId": 13101,
+    "audience": "Public",
+    "generationFrequency": "Chron - Daily",
+    "securityClassification": "Public",
+    "lastUpdated": "2024-07-10",
+    "firstRun": "2013-06-13",
+    "eceii": "",
+    "channel": "Public,EWS,Data Portal",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "Current Day Reports XSD",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "zip,csv,xml",
+    "ddlName": "",
+    "misDisplayDuration": 31,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "DATA",
+    "downloadLimit": 638,
+    "lastPostDatetime": "2026-11-17T05:50:00",
+    "bundle": 1,
+    "protocolRules": {
+     "NP6.3.2(4)": "https://www.ercot.com/mp/data-products?protocolRules=NP6.3.2(4)"
+    },
+    "artifacts": [
+     {
+      "reportTypeId": 13101,
+      "displayName": "Actual System Load by Weather Zone",
+      "_links": {
+       "endpoint": {
+        "href": "https://api.ercot.com/api/public-reports/np6-345-cd/act_sys_load_by_wzn"
+       }
+      }
+     }
+    ],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-345-cd"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np6-345-cd"
+     },
+     "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np6-345-cd"
+     }
+    }
+   },
+   {
+    "emilId": "NP6-788-CD",
+    "name": "LMPs by Resource Nodes, Load Zones and Trading Hubs",
+    "description": "The Locational Marginal Price for each Settlement Point, normally produced by SCED every five minutes.",
+    "status": "Active",
+    "reportTypeId": 12300,
+    "audience": "Public",
+    "generationFrequency": "Event - Per SCED Run",
+    "securityClassification": "Public",
+    "lastUpdated": "2024-07-10",
+    "firstRun": "2010-11-30",
+    "eceii": "",
+    "channel": "Public,EWS,Data Portal",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "Current Day Reports XSD",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "zip,csv,xml",
+    "ddlName": "",
+    "misDisplayDuration": 5,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "DATA",
+    "downloadLimit": 638,
+    "lastPostDatetime": "2026-11-17T23:55:23",
+    "bundle": 1,
+    "protocolRules": {
+     "NP6.3.2(2)": "https://www.ercot.com/mp/data-products?protocolRules=NP6.3.2(2)"
+    },
+    "artifacts": [
+     {
+      "reportTypeId": 12300,
+      "displayName": "LMPs by Resource Nodes, Load Zones and Trading Hubs",
+      "_links": {
+       "endpoint": {
+        "href": "https://api.ercot.com/api/public-reports/np6-788-cd/lmp_node_zone_hub"
+       }
+      }
+     }
+    ],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-788-cd"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np6-788-cd"
+     },
+     "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np6-788-cd"
+     }
+    }
+   },
+   {
+    "emilId": "NP6-905-CD",
+    "name": "Settlement Point Prices at Resource Nodes, Hubs and Load Zones",
+    "description": "Settlement Point Price for each Settlement Point, produced from SCED LMPs every 15 minutes.",
+    "status": "Active",
+    "reportTypeId": 12301,
+    "audience": "Public",
+    "generationFrequency": "Chron - 15 Minutes",
+    "securityClassification": "Public",
+    "lastUpdated": "2024-07-10",
+    "firstRun": "2010-11-30",
+    "eceii": "",
+    "channel": "Public,EWS,Data Portal",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "Current Day Reports XSD",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "zip,csv,xml",
+    "ddlName": "",
+    "misDisplayDuration": 7,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "DATA",
+    "downloadLimit": 638,
+    "lastPostDatetime": "2026-11-17T23:47:01",
+    "bundle": 1,
+    "protocolRules": {
+     "NP6.3.2(2)": "https://www.ercot.com/mp/data-products?protocolRules=NP6.3.2(2)"
+    },
+    "artifacts": [
+     {
+      "reportTypeId": 12301,
+      "displayName": "Settlement Point Prices at Resource Nodes, Hubs and Load Zones",
+      "_links": {
+       "endpoint": {
+        "href": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub"
+       }
+      }
+     }
+    ],
+    "_links": {
+     "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-905-cd"
+     },
+     "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+     },
+     "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np6-905-cd"
+     },
+     "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np6-905-cd"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "https://api.ercot.com/api/public-reports/"
+  }
+ }
+}

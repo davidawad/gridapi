@@ -1,0 +1,190 @@
+<Document xmlns="http://www.ieso.ca/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" docID="RealtimeZonalEnergyPrices" xsi:schemaLocation="http://www.ieso.ca/schema https://reports-public.ieso.ca/docrefs/schema/RealtimeZonalEnergyPrices_r1.xsd">
+<DocHeader>
+<DocTitle>Realtime 5-min Virtual Zonal Energy Prices Report</DocTitle>
+<DocRevision>1</DocRevision>
+<DocConfidentiality>
+<DocConfClass>PUB</DocConfClass>
+</DocConfidentiality>
+<CreatedAt>2026-11-18T01:08:20</CreatedAt>
+</DocHeader>
+<DocBody>
+<DELIVERYDATE>2026-11-18</DELIVERYDATE>
+<DELIVERYHOUR>2</DELIVERYHOUR>
+<ZonalPrices>
+<TransactionZone>
+<ZoneName>EAST:HUB</ZoneName>
+<IntervalPrice>
+<Interval>1</Interval>
+<ZonalPrice>44.68</ZonalPrice>
+<EnergyLossPrice>1.41</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>2</Interval>
+<ZonalPrice>44.68</ZonalPrice>
+<EnergyLossPrice>1.41</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>3</Interval>
+<ZonalPrice>51.54</ZonalPrice>
+<EnergyLossPrice>1.41</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>4</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>5</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>6</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>7</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>8</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>9</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>10</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>11</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>12</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+</TransactionZone>
+<TransactionZone>
+<ZoneName>ESSA:HUB</ZoneName>
+<IntervalPrice>
+<Interval>1</Interval>
+<ZonalPrice>43.41</ZonalPrice>
+<EnergyLossPrice>0.75</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>2</Interval>
+<ZonalPrice>43.41</ZonalPrice>
+<EnergyLossPrice>0.75</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>3</Interval>
+<ZonalPrice>43.41</ZonalPrice>
+<EnergyLossPrice>0.75</EnergyLossPrice>
+<EnergyCongPrice>0</EnergyCongPrice>
+<FlagNo>0</FlagNo>
+</IntervalPrice>
+<IntervalPrice>
+<Interval>4</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>5</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>6</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>7</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>8</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>9</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>10</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>11</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+<IntervalPrice>
+<Interval>12</Interval>
+<ZonalPrice />
+<EnergyLossPrice />
+<EnergyCongPrice />
+<FlagNo />
+</IntervalPrice>
+</TransactionZone>
+</ZonalPrices>
+</DocBody>
+</Document>

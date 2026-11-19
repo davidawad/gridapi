@@ -1,0 +1,49 @@
+[package]
+name = "gridapi-miso"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "GPL-3.0-or-later"
+description = "Async Rust client for MISO (Midcontinent ISO) public market and real-time data: the keyless public API, market report files, and the keyed Data Exchange API."
+readme = "README.md"
+keywords = ["miso", "lmp", "power-markets", "energy", "api-client"]
+categories = ["api-bindings", "asynchronous"]
+publish = false
+
+[features]
+default = []
+# The keyed Data Exchange API (apim.misoenergy.org): Client::data_exchange_page /
+# data_exchange_all_pages / pricing_page, ClientBuilder::api_key. UNTESTED, no MISO
+# account (sign-up asks for a phone number and company), so it is off by default
+# and the default build exposes only methods verified against the live service.
+miso-dataexchange = []
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+csv = "1"
+fastrand = "2"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", default-features = false, features = ["time"] }
+tracing = "0.1"
+
+[dev-dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "io-util", "time"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+dbg_macro = "warn"
+todo = "warn"
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"

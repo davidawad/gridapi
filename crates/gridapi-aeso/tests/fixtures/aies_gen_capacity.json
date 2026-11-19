@@ -1,0 +1,78 @@
+{
+ "timestamp": "2026-11-18 06:45:19.800+0000",
+ "responseCode": "200",
+ "return": [
+  {
+   "fuel_type": "GAS",
+   "sub_fuel_type": "COGENERATION",
+   "Hours": [
+    {
+     "begin_datetime_utc": "2026-11-16 06:00",
+     "begin_datetime_mpt": "2026-11-16 00:00",
+     "outage_grouping": {
+      "MC": 6125,
+      "MBO OUT": 0,
+      "OP OUT": 1293,
+      "AC": 4832
+     }
+    },
+    {
+     "begin_datetime_utc": "2026-11-16 07:00",
+     "begin_datetime_mpt": "2026-11-16 01:00",
+     "outage_grouping": {
+      "MC": 6125,
+      "MBO OUT": 0,
+      "OP OUT": 1292,
+      "AC": 4833
+     }
+    },
+    {
+     "begin_datetime_utc": "2026-11-16 08:00",
+     "begin_datetime_mpt": "2026-11-16 02:00",
+     "outage_grouping": {
+      "MC": 6125,
+      "MBO OUT": 0,
+      "OP OUT": 1292,
+      "AC": 4833
+     }
+    }
+   ]
+  },
+  {
+   "fuel_type": "GAS",
+   "sub_fuel_type": "COMBINED_CYCLE",
+   "Hours": [
+    {
+     "begin_datetime_utc": "2026-11-16 06:00",
+     "begin_datetime_mpt": "2026-11-16 00:00",
+     "outage_grouping": {
+      "MC": 3974,
+      "MBO OUT": 0,
+      "OP OUT": 327,
+      "AC": 3647
+     }
+    },
+    {
+     "begin_datetime_utc": "2026-11-16 07:00",
+     "begin_datetime_mpt": "2026-11-16 01:00",
+     "outage_grouping": {
+      "MC": 3974,
+      "MBO OUT": 0,
+      "OP OUT": 327,
+      "AC": 3647
+     }
+    },
+    {
+     "begin_datetime_utc": "2026-11-16 08:00",
+     "begin_datetime_mpt": "2026-11-16 02:00",
+     "outage_grouping": {
+      "MC": 3974,
+      "MBO OUT": 0,
+      "OP OUT": 327,
+      "AC": 3647
+     }
+    }
+   ]
+  }
+ ]
+}

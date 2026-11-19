@@ -1,0 +1,53 @@
+{
+  "errors": [
+    {
+      "field": "Filters",
+      "message": "A datetime is missing. Please input values for datetime_beginning_ept or datetime_beginning_utc",
+      "detail": [
+        "datetime_filter"
+      ]
+    }
+  ],
+  "feedMetadata": {
+    "id": 45,
+    "feedId": "6",
+    "name": "da_hrl_lmps",
+    "displayName": "Day-Ahead Hourly LMPs",
+    "description": "(trimmed)",
+    "category": "Locational Marginal Prices",
+    "firstAvailable": "2000-06-01T00:00:00",
+    "version": "1",
+    "internalName": "f_006_da_hrl_lmps",
+    "defaultSearchJson": "{\"rowCount\":25,\"startRow\":1,\"filters\":[{\"datetime_beginning_ept\":\"today\"},{\"row_is_current\":1}],\"sort\":\"datetime_beginning_ept\",\"order\":0}",
+    "fileLoadingMethod": "Version",
+    "postingFrequency": "Daily",
+    "postingDay": "Daily between 12:00 p.m. and 01:30 p.m.",
+    "retentionTime": "Indefinitely",
+    "lastDataLoad": "2026-11-17T18:37:07.5466667",
+    "lastDataLoadEst": "2026-11-17T13:37:07.5466667-05:00",
+    "isFrequentlyAccessed": "True",
+    "enableArchiving": true,
+    "archiveCutoffDays": 731,
+    "created": "2016-11-10T14:42:49",
+    "updated": "2017-10-02T10:10:23",
+    "repostNotifications": [],
+    "links": [
+      {
+        "rel": "feed",
+        "href": "https://api.pjm.com/api/v1/da_hrl_lmps"
+      },
+      {
+        "rel": "metadata",
+        "href": "https://api.pjm.com/api/v1/da_hrl_lmps/metadata"
+      }
+    ],
+    "timeDurationUnit": 1,
+    "timeDurationIncrement": 15,
+    "categoryOrdinal": 1,
+    "feedProductType": 3
+  },
+  "code": "API_1041",
+  "message": "A datetime is missing. Please input values for datetime_beginning_ept or datetime_beginning_utc",
+  "activityId": "697fdce8-fd33-4f65-9f49-6409782623f3",
+  "timestamp": "2026-11-18T06:12:58.6131065Z"
+}

@@ -1,0 +1,40 @@
+[package]
+name = "gridapi-nyiso"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Async client for NYISO's public MIS market data: LBMP, actual load, load forecast, fuel mix, ancillary prices, interface flows"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+publish = false
+keywords = ["nyiso", "electricity", "lmp", "energy", "power-grid"]
+categories = ["api-bindings", "science"]
+
+[dependencies]
+bytes = "1"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock", "serde"] }
+chrono-tz = "0.10"
+csv = "1"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+thiserror = "2"
+tokio = { version = "1", default-features = false, features = ["time"] }
+tracing = "0.1"
+zip = { version = "9", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+wiremock = "0.6"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "warn"
+panic = "deny"
+# Every fallible fn returns the crate `Error`; documented once at the crate level.
+missing_errors_doc = "allow"
+module_name_repetitions = "allow"

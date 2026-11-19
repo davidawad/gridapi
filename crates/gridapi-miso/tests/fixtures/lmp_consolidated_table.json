@@ -1,0 +1,130 @@
+{
+ "LMPData": {
+  "RefId": "18-Nov-2026 - Interval 01:10 EST",
+  "FiveMinLMP": {
+   "HourAndMin": "01:10",
+   "PricingNode": [
+    {
+     "name": "NIPS.NIPS",
+     "region": "Midwest",
+     "LMP": "19.39",
+     "MLC": "0.44",
+     "MCC": "10.57",
+     "REGMCP": "0.00",
+     "REGMILEAGEMCP": "0.00",
+     "SPINMCP": "0.00",
+     "SUPPMCP": "0.00",
+     "STRMCP": "0.00",
+     "RCUPMCP": "0.00",
+     "RCDOWNMCP": "0.00"
+    },
+    {
+     "name": "NPPD",
+     "region": "Midwest",
+     "LMP": "-6.69",
+     "MLC": "-1.33",
+     "MCC": "-16.15",
+     "REGMCP": "0.00",
+     "REGMILEAGEMCP": "0.00",
+     "SPINMCP": "0.00",
+     "SUPPMCP": "0.00",
+     "STRMCP": "0.00",
+     "RCUPMCP": "0.00",
+     "RCDOWNMCP": "0.00"
+    },
+    {
+     "name": "ARKANSAS.HUB",
+     "region": "South",
+     "LMP": "-14.89",
+     "MLC": "-1.11",
+     "MCC": "-37.95",
+     "REGMCP": "0.00",
+     "REGMILEAGEMCP": "0.00",
+     "SPINMCP": "0.00",
+     "SUPPMCP": "0.00",
+     "STRMCP": "0.00",
+     "RCUPMCP": "0.00",
+     "RCDOWNMCP": "0.00"
+    }
+   ]
+  },
+  "HourlyIntegratedLMP": {
+   "HourAndMin": "HE 1",
+   "PricingNode": [
+    {
+     "name": "NIPS.NIPS",
+     "region": "Midwest",
+     "LMP": "28.49",
+     "MCC": "6.43",
+     "MLC": "0.34"
+    },
+    {
+     "name": "NPPD",
+     "region": "Midwest",
+     "LMP": "-7.21",
+     "MCC": "-25.15",
+     "MLC": "-1.39"
+    },
+    {
+     "name": "ARKANSAS.HUB",
+     "region": "South",
+     "LMP": "17.22",
+     "MCC": "1.26",
+     "MLC": "-0.53"
+    }
+   ]
+  },
+  "DayAheadExAnteLMP": {
+   "HourAndMin": "HE 2",
+   "PricingNode": [
+    {
+     "name": "NIPS.NIPS",
+     "region": "Midwest",
+     "LMP": "41.86",
+     "MCC": "8.35",
+     "MLC": "0.92"
+    },
+    {
+     "name": "NPPD",
+     "region": "Midwest",
+     "LMP": "-2.09",
+     "MCC": "-20.00",
+     "MLC": "-1.73"
+    },
+    {
+     "name": "ARKANSAS.HUB",
+     "region": "South",
+     "LMP": "13.20",
+     "MCC": "-3.12",
+     "MLC": "-1.26"
+    }
+   ]
+  },
+  "DayAheadExPostLMP": {
+   "HourAndMin": "HE 2",
+   "PricingNode": [
+    {
+     "name": "NIPS.NIPS",
+     "region": "Midwest",
+     "LMP": "24.87",
+     "MCC": "10.19",
+     "MLC": "0.92"
+    },
+    {
+     "name": "NPPD",
+     "region": "Midwest",
+     "LMP": "-2.47",
+     "MCC": "-33.21",
+     "MLC": "-1.73"
+    },
+    {
+     "name": "ARKANSAS.HUB",
+     "region": "South",
+     "LMP": "20.38",
+     "MCC": "-3.12",
+     "MLC": "-1.33"
+    }
+   ]
+  }
+ }
+}

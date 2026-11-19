@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="336" font-family="Menlo, Monaco, Courier New, monospace" font-size="18">
+<rect width="900" height="336" rx="12" fill="#1e2127"/>
+<circle cx="28" cy="26" r="7" fill="#ff5f56"/><circle cx="52" cy="26" r="7" fill="#ffbd2e"/><circle cx="76" cy="26" r="7" fill="#27c93f"/>
+<text x="28" y="66" fill="#7f848e" xml:space="preserve">$ cargo run -p gridapi-nyiso --example showcase</text>
+<text x="28" y="92" fill="#d7dae0" xml:space="preserve">NYISO day-ahead LBMP, 2026-11-17 (Eastern), $/MWh</text>
+<text x="28" y="118" fill="#d7dae0" xml:space="preserve">interval start     zone         LBMP   energy congestion   losses</text>
+<text x="28" y="144" fill="#d7dae0" xml:space="preserve">2026-11-17 00:00   CAPITL      51.66    50.54       0.00     1.12</text>
+<text x="28" y="170" fill="#d7dae0" xml:space="preserve">2026-11-17 00:00   CENTRL      40.57    41.07       0.00    -0.50</text>
+<text x="28" y="196" fill="#d7dae0" xml:space="preserve">2026-11-17 01:00   CAPITL      41.60    40.31       0.00     1.29</text>
+<text x="28" y="222" fill="#d7dae0" xml:space="preserve">2026-11-17 01:00   CENTRL      38.17    38.59       0.00    -0.42</text>
+<text x="28" y="248" fill="#d7dae0" xml:space="preserve">2026-11-17 02:00   CAPITL      40.12    38.27       0.00     1.85</text>
+<text x="28" y="274" fill="#d7dae0" xml:space="preserve">2026-11-17 02:00   CENTRL      42.93    43.56       0.00    -0.63</text>
+<text x="28" y="300" fill="#d7dae0" xml:space="preserve">2026-11-17 03:00   CAPITL      25.52    24.55       0.00     0.97</text>
+<text x="28" y="326" fill="#d7dae0" xml:space="preserve">2026-11-17 03:00   CENTRL      29.41    29.99       0.00    -0.58</text>
+</svg>

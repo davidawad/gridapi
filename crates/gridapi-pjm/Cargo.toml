@@ -11,6 +11,15 @@ keywords = ["pjm", "electricity", "lmp", "energy", "api-client"]
 categories = ["api-bindings"]
 include = ["src/**", "tests/**", "README.md"]
 
+[features]
+default = []
+# Opt-in, off by default: KeyMode::PublicWebApp, the subscription key PJM's own
+# Data Miner 2 web app ships in settings.json. That key is not issued to you and
+# using it sits outside PJM's documented route for automated access (a registered
+# PJM account), so it also needs ClientBuilder::i_accept_pjm_public_key_risk().
+# See the PJM terms quoted on KeyMode::PublicWebApp. Prefer your own key.
+pjm-public-web-key = []
+
 [dependencies]
 chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
 rand = "0.8"

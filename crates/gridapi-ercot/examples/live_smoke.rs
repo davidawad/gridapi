@@ -6,6 +6,8 @@
 //! ```
 //!
 //! Exits non-zero when any check fails.
+//!
+//! NEVER run these in public CI: they use your own ERCOT credentials, which must not be shared, and ERCOT caps downloads of the same report at 3 per 12 months. Use your own credentials on your own machine.
 
 #[path = "../tests/live/checks.rs"]
 mod checks;

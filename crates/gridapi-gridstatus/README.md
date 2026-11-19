@@ -8,6 +8,15 @@ this is a from-scratch implementation against the published OpenAPI document
 
 Licensed under GPL-3.0-or-later. No dependency on any private crate.
 
+**A pure optional adapter: bring your own plan.** This crate is a thin client for
+Grid Status's documented, public API and nothing more. It is independent of the
+other `gridapi-*` crates (none of them depends on it, and it can be left out
+without affecting them). It needs your own Grid Status account, API key and
+plan; the key is yours alone and must not be shared with anyone (Grid Status
+Terms of Use, section 2.2), and your use of the service is governed by the
+[Grid Status Terms of Use](https://gridstatus.io/legal/terms_of_use.pdf).
+Data provided by Grid Status (<https://www.gridstatus.io/>).
+
 ## Usage
 
 ```rust,no_run
@@ -150,3 +159,13 @@ filter, `columns`, `order`, `limit`, `page_size`, `start_time`/`end_time`, `loca
 ## License
 
 GPL-3.0-or-later.
+
+## Terms, attribution and notices
+
+Data provided by Grid Status (https://www.gridstatus.io/). Requires your own Grid Status API key and plan; subject to the Grid Status Terms of Use (https://gridstatus.io/legal/terms_of_use.pdf).
+
+This crate is a pure client for Grid Status's documented API and an optional adapter: it is independent of the other `gridapi-*` crates, and it is not described or offered as an alternative to Grid Status. Your Grid Status key must not be shared with any third party.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they spend your Grid Status quota and a Grid Status key must not be shared or exposed.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

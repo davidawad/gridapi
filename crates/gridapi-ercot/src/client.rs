@@ -356,6 +356,15 @@ impl Client {
 
     /// Downloads one archived document as a zip.
     ///
+    /// # Download cap: at most 3 downloads of the same report per 12 months
+    ///
+    /// ERCOT's Data Access Portal terms say: "You may not download the same
+    /// report from the Data Access Portal more than three times within a
+    /// 12-month period." Do not call this (or [`Client::download_archives`]) in
+    /// a loop for the same document, and do not re-download a report you
+    /// already hold: keep the bytes. Terms:
+    /// <https://www.ercot.com/help/terms/data-portal>.
+    ///
     /// # Errors
     ///
     /// The usual authentication, transport and API errors; an HTML body is
@@ -372,6 +381,14 @@ impl Client {
 
     /// Downloads several documents in one request; the result is a zip of per-document zips
     /// (use [`ArchiveFile::extract`], which unpacks both levels).
+    ///
+    /// # Download cap: at most 3 downloads of the same report per 12 months
+    ///
+    /// Every document id in `doc_ids` counts as a download of that report under
+    /// ERCOT's rule ("You may not download the same report from the Data Access
+    /// Portal more than three times within a 12-month period",
+    /// <https://www.ercot.com/help/terms/data-portal>). Fetch each report once
+    /// and keep it.
     ///
     /// # Errors
     ///

@@ -172,3 +172,15 @@ current. Nothing is feature-gated: every method passed.
 ## License
 
 GPL-3.0-or-later.
+
+## Terms, attribution and notices
+
+Source: U.S. Energy Information Administration (retrieved 2026-11-18). Not endorsed by EIA. The EIA logo is not used.
+
+EIA's API documentation says programs "must throttle the number of the requests they make per second and per hour". This client retries with jittered backoff on 429 and 5xx but does not yet pace requests itself: pace your own calls. Use "EIA" only to identify the source; the name is not used to imply endorsement.
+
+The fixtures under `tests/fixtures` are excerpts of EIA responses, labelled as such in `tests/fixtures/README.md`.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they use your own EIA key and the real EIA API.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

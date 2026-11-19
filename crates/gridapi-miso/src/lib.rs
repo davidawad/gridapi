@@ -1,17 +1,24 @@
-//! Async client for MISO (Midcontinent Independent System Operator) public market data.
+//! Async client for MISO (Midcontinent Independent System Operator) market data.
 //!
-//! Three data sources, one [`Client`]:
+//! # Which routes are compiled in
 //!
-//! * the keyless **public API** at `public-api.misoenergy.org` ([`Client::ex_ante_lmp`],
-//!   [`Client::lmp_consolidated_table`], [`Client::five_minute_ex_post_lmp`],
-//!   [`Client::fuel_mix`], [`Client::total_load`], wind and solar, interchange, constraints);
-//! * the keyless **market report files** at `docs.misoenergy.org/marketreports`
-//!   ([`Client::lmp_report`]: day-ahead ex-post and ex-ante, real-time prelim and final hourly LMPs);
-//! * behind the non-default cargo feature `miso-dataexchange`: the keyed **Data Exchange API** at
-//!   `apim.misoenergy.org` (`Client::pricing_page`), which needs `MISO_API_KEY`. **Untested: no
-//!   account**, so it is not part of the default build.
+//! * **Data Exchange API** (`apim.misoenergy.org`), the route MISO provides for programmatic
+//!   access: behind the cargo feature `miso-dataexchange`; needs your own `MISO_API_KEY`
+//!   (<https://data-exchange.misoenergy.org/>) and is **untested** (no account).
+//! * **Website-hosted routes**, behind the **off-by-default** cargo feature `miso-public-web`:
+//!   the keyless public API at `public-api.misoenergy.org` (`Client::ex_ante_lmp`,
+//!   `Client::lmp_consolidated_table`, `Client::five_minute_ex_post_lmp`,
+//!   `Client::fuel_mix`, `Client::total_load`, wind and solar, interchange, constraints),
+//!   the market report files at `docs.misoenergy.org/marketreports` (`Client::lmp_report`) and
+//!   the retired `MISORTWDDataBroker` (`Client::data_broker`).
 //!
-//! The legacy `MISORTWDDataBroker` feed was retired by MISO on 2025-12-12; see [`Client::data_broker`].
+//! MISO's website terms (<https://www.misoenergy.org/meet-miso/legal-and-privacy/>) say: "You
+//! agree not to access or use this Website or the App by any means other than through the
+//! interface that is provided by MISO for use in accessing or using this Website or the App.
+//! You agree not use any automated means, including, without limitation, agents, robots,
+//! scripts, or spiders, to access, monitor, or copy any part of this Website or the App." Whether
+//! those hosts are "the Website" is arguable, which is why they are opt-in. Enable
+//! `miso-public-web` only if you have MISO's permission or accept that risk yourself.
 //!
 //! Requests retry on HTTP 429, 5xx and connection errors with jittered exponential backoff
 //! ([`RetryPolicy`]). MISO publishes timestamps on a fixed EST clock; see [`est_to_utc`].
@@ -20,6 +27,7 @@
 //! # Examples
 //!
 //! ```no_run
+//! # #[cfg(feature = "miso-public-web")]
 //! # async fn run() -> Result<(), gridapi_miso::Error> {
 //! use gridapi_miso::Client;
 //!
@@ -32,34 +40,50 @@
 //! # }
 //! ```
 
+// With neither opt-in feature there is no request-making method, so the shared plumbing is
+// (deliberately) unused.
+#![cfg_attr(
+    not(any(feature = "miso-public-web", feature = "miso-dataexchange")),
+    allow(dead_code)
+)]
+
+#[cfg(feature = "miso-public-web")]
 mod broker;
 mod client;
 #[cfg(feature = "miso-dataexchange")]
 mod data_exchange;
 mod error;
+#[cfg(feature = "miso-public-web")]
 mod lmp;
+#[cfg(feature = "miso-public-web")]
 mod reports;
 mod retry;
+#[cfg(feature = "miso-public-web")]
 mod serde_util;
+#[cfg(feature = "miso-public-web")]
 mod system;
 mod time;
 mod transport;
 
+#[cfg(feature = "miso-public-web")]
 pub use broker::REPLACEMENTS as DATA_BROKER_REPLACEMENTS;
-pub use client::{
-    Client, ClientBuilder, Endpoints, DATA_BROKER_BASE, PUBLIC_API_BASE, REPORTS_BASE,
-};
+pub use client::{Client, ClientBuilder, Endpoints};
 #[cfg(feature = "miso-dataexchange")]
 pub use client::{API_KEY_ENV, DATA_EXCHANGE_BASE};
+#[cfg(feature = "miso-public-web")]
+pub use client::{DATA_BROKER_BASE, PUBLIC_API_BASE, REPORTS_BASE};
 #[cfg(feature = "miso-dataexchange")]
 pub use data_exchange::{DataExchangeQuery, Page, PageInfo, PricingProduct};
 pub use error::{Error, Result};
+#[cfg(feature = "miso-public-web")]
 pub use lmp::{
     AncillaryMcp, ExAnteLmp, FiveMinuteLmp, FiveMinuteWindow, HubLmp, LmpConsolidatedTable,
     NodePrice, PriceBlock, ZoneMcp,
 };
+#[cfg(feature = "miso-public-web")]
 pub use reports::{Component, LmpReport, LmpReportKind, NodeType, ReportRow};
 pub use retry::RetryPolicy;
+#[cfg(feature = "miso-public-web")]
 pub use system::{
     AcePoint, BindingConstraint, ForecastVsActual, FuelEntry, FuelMix, FuelMixView, HourlyMw,
     HourlyPoint, LoadPoint, NetActualInterchange, NetScheduledInterchange, Renewable, SnapshotItem,

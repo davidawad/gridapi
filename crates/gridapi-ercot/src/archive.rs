@@ -1,4 +1,12 @@
 //! Archive listing and download (zipped CSV/XML posting files).
+//!
+//! # Warning: ERCOT caps downloads of the same report at 3 per 12 months
+//!
+//! ERCOT's Data Access Portal terms say: "You may not download the same report from the
+//! Data Access Portal more than three times within a 12-month period"
+//! (<https://www.ercot.com/help/terms/data-portal>). The download helpers
+//! (`Client::download_archive`, `Client::download_archives`) do not count or enforce this:
+//! download each report once and keep the bytes. Listing (`Client::archives`) returns metadata only, not the report.
 
 use std::io::Read;
 

@@ -1,5 +1,6 @@
 //! Every typed endpoint, decoded from synthetic fixtures (real shapes, invented values) served by an in-process server.
 
+#![cfg(feature = "miso-public-web")]
 #![allow(
     clippy::expect_used,
     clippy::unwrap_used,
@@ -11,8 +12,6 @@ mod common;
 
 use chrono::NaiveDate;
 use common::{fixture, Reply, Server};
-#[cfg(feature = "miso-dataexchange")]
-use gridapi_miso::PricingProduct;
 use gridapi_miso::{
     Client, Component, Endpoints, Error, FiveMinuteWindow, FuelMixView, LmpReportKind, NodeType,
     Renewable, RetryPolicy,
@@ -230,58 +229,4 @@ async fn legacy_data_broker_reports_no_data() {
     let err = c.data_broker("getfuelmix").await.expect_err("retired");
     assert!(matches!(err, Error::NoData { .. }), "{err}");
     assert!(s.requests()[0].target.contains("messageType=getfuelmix"));
-}
-
-#[cfg(feature = "miso-dataexchange")]
-#[tokio::test]
-async fn data_exchange_requires_a_key_and_sends_it_in_the_gateway_header() {
-    let server = Server::start(vec![(
-        "/pricing/v1/day-ahead/2026-11-16/lmp-expost",
-        vec![
-            Reply::ok(r#"{"data":[{"node":"A","lmp":1.5}],"page":{"pageNumber":0,"totalPages":2,"lastPage":false}}"#),
-            Reply::ok(r#"{"data":[{"node":"B","lmp":2.5}],"page":{"pageNumber":1,"totalPages":2,"lastPage":true}}"#),
-        ],
-    )])
-    .await;
-    let eps = Endpoints::all_at(&server.base);
-    let keyless = Client::builder()
-        .endpoints(eps.clone())
-        .build()
-        .expect("client");
-    let date = NaiveDate::from_ymd_opt(2026, 11, 16).expect("date");
-    let q = gridapi_miso::DataExchangeQuery::new();
-    let err = keyless
-        .pricing_page(PricingProduct::DayAheadExPost, date, &q)
-        .await
-        .expect_err("no key");
-    assert!(matches!(err, Error::MissingApiKey), "{err}");
-    assert!(
-        server.requests().is_empty(),
-        "nothing is sent without a key"
-    );
-
-    let keyed = Client::builder()
-        .endpoints(eps)
-        .api_key("secret-key")
-        .build()
-        .expect("client");
-    let rows = keyed
-        .data_exchange_all_pages(&PricingProduct::DayAheadExPost.path(date), &q)
-        .await
-        .expect("pages");
-    assert_eq!(rows.len(), 2);
-    let seen = server.requests();
-    assert_eq!(seen.len(), 2);
-    assert_eq!(
-        seen[0]
-            .headers
-            .get("ocp-apim-subscription-key")
-            .map(String::as_str),
-        Some("secret-key")
-    );
-    assert!(
-        seen[1].target.contains("pageNumber=1"),
-        "{}",
-        seen[1].target
-    );
 }

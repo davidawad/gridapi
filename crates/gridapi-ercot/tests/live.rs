@@ -2,6 +2,8 @@
 //!
 //! Run with `ERCOT_USERNAME`, `ERCOT_PASSWORD` and `ERCOT_SUBSCRIPTION_KEY` set:
 //! `cargo test --test live -- --ignored --nocapture --test-threads=1`
+//!
+//! NEVER run these in public CI: they use your own ERCOT credentials, which must not be shared, and ERCOT caps downloads of the same report at 3 per 12 months. Use your own credentials on your own machine.
 
 #[path = "live/checks.rs"]
 mod checks;

@@ -1,5 +1,7 @@
 //! Live tests against mis.nyiso.com. They need network access and are skipped by
 //! default: `cargo test -p gridapi-nyiso --test live -- --ignored --nocapture`.
+//!
+//! NEVER run these in public CI: they hit NYISO's servers from whatever machine runs them. Use your own credentials on your own machine.
 
 // Live tests fail loudly with `expect`, and `assert!(x.is_empty())` reads best.
 #![allow(

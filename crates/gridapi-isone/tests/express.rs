@@ -496,7 +496,7 @@ async fn latest_hourly_prices_carry_ids_only() {
     );
 }
 
-/// Regression: day-ahead hourly prices are served by the latest report as
+/// Regression (): day-ahead hourly prices are served by the latest report as
 /// `final` (captured live 2026-11-18, trimmed to two locations); `prelim` is not.
 #[tokio::test]
 async fn latest_hourly_day_ahead_is_served_as_final() {
@@ -523,7 +523,7 @@ async fn latest_hourly_day_ahead_is_served_as_final() {
     assert_eq!(rows[0].hour_ending, "22");
 }
 
-/// Regression: ISO-NE answers HTTP 500 for day-ahead `prelim`, real-time
+/// Regression (): ISO-NE answers HTTP 500 for day-ahead `prelim`, real-time
 /// `final`, and every non-real-time-preliminary rolling window (checked live 2026-11-18).
 /// Those pairs are refused locally, without a request.
 #[tokio::test]

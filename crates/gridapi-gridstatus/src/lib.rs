@@ -1,6 +1,11 @@
 //! Async client for the [Grid Status](https://www.gridstatus.io) hosted API
 //! (`https://api.gridstatus.io/v1`).
 //!
+//! A pure optional adapter: bring your own Grid Status account, API key and plan. The key is
+//! yours alone and must not be shared. Use is subject to the Grid Status Terms of Use
+//! (<https://gridstatus.io/legal/terms_of_use.pdf>). Data provided by Grid Status
+//! (<https://www.gridstatus.io/>).
+//!
 //! - Dataset catalog ([`Client::list_datasets`]) and metadata ([`Client::dataset`]).
 //! - Generic dataset query with every documented parameter ([`Query`], [`Client::query`],
 //!   [`Client::query_records`], [`Client::query_all`]) returning dynamic [`Record`]s

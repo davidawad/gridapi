@@ -1,17 +1,34 @@
 # gridapi-miso
 
 Async Rust client for [MISO](https://www.misoenergy.org) (Midcontinent Independent System Operator)
-public market and real-time data. Typed responses, jittered retry, no global state, no account needed
-for the public sources.
+market and real-time data. Typed responses, jittered retry, no global state.
 
-| Source | Host | Auth | Status |
-| --- | --- | --- | --- |
-| Public API (`/api/...`) | `public-api.misoenergy.org` | none | verified live |
-| Market report files | `docs.misoenergy.org/marketreports` | none | verified live |
-| Legacy RT data broker | `api.misoenergy.org/MISORTWDDataBroker` | none | retired by MISO, returns `no data` |
-| Data Exchange API (non-default cargo feature `miso-dataexchange`) | `apim.misoenergy.org` | `MISO_API_KEY` | **untested: no account** |
+> **Warning: MISO's website terms bar automated access to misoenergy.org.**
+> MISO's terms (<https://www.misoenergy.org/meet-miso/legal-and-privacy/>) say: "You agree not to
+> access or use this Website or the App by any means other than through the interface that is
+> provided by MISO for use in accessing or using this Website or the App. You agree not use any
+> automated means, including, without limitation, agents, robots, scripts, or spiders, to access,
+> monitor, or copy any part of this Website or the App." Whether `public-api.misoenergy.org` and
+> `docs.misoenergy.org` count as "the Website" is arguable, so every route that scripts them is
+> behind the cargo feature **`miso-public-web`, which is off by default**. The route MISO provides
+> for programmatic access is the **Data Exchange API**
+> (<https://data-exchange.misoenergy.org/>), used with your own key. Enable `miso-public-web` only
+> with MISO's written permission or at your own risk.
+
+| Source | Host | Auth | Cargo feature (all off by default) | Status |
+| --- | --- | --- | --- | --- |
+| **Data Exchange API** (the supported route) | `apim.misoenergy.org` | your own `MISO_API_KEY` | `miso-dataexchange` | **untested: no account** |
+| Public API (`/api/...`) | `public-api.misoenergy.org` | none | `miso-public-web` | verified live |
+| Market report files | `docs.misoenergy.org/marketreports` | none | `miso-public-web` | verified live |
+| Legacy RT data broker | `api.misoenergy.org/MISORTWDDataBroker` | none | `miso-public-web` | retired by MISO, returns `no data` |
+
+With no features enabled the crate has no request-making method: pick `miso-dataexchange` (with
+your own key) or, at your own risk, `miso-public-web`.
 
 ## Usage
+
+The examples below use the website routes, so they need
+`gridapi-miso = { version = "0.1", features = ["miso-public-web"] }` (see the warning above).
 
 ```rust,no_run
 use gridapi_miso::{Client, FuelMixView, LmpReportKind};
@@ -49,7 +66,7 @@ MISO asks that real-time endpoints be polled no more than once a minute.
 
 ## Endpoints covered
 
-Public API, all typed unless noted:
+Public API (feature `miso-public-web`), all typed unless noted:
 
 | Method | Path |
 | --- | --- |
@@ -65,7 +82,7 @@ Public API, all typed unless noted:
 | `ace`, `snapshot` | `/api/Ace`, `/api/Snapshot` |
 | `public_api_value(path)` | any other `/api/*` path as raw JSON (`CsatSupplyDemand`, `RegionalDirectionalTransfer`, ...) |
 
-Market report files: `lmp_report(kind, date)` for `YYYYMMDD_da_expost_lmp.csv`, `_da_exante_lmp.csv`,
+Market report files (feature `miso-public-web`): `lmp_report(kind, date)` for `YYYYMMDD_da_expost_lmp.csv`, `_da_exante_lmp.csv`,
 `_rt_lmp_prelim.csv`, `_rt_lmp_final.csv` (typed: node, node type, LMP/MCC/MLC by hour ending), and
 `market_report(file_name)` for any other file's bytes. Report files are EST (UTC-5, no DST). Real-time
 final files appear only after settlement; prelim files cover about the last week.
@@ -107,7 +124,8 @@ Every request-making public method of this crate was called through the crate's 
 | Client::market_report | raw bytes of the day-ahead ex-ante report | 1234937 bytes | 11-19 02:28Z | pass |
 | Client::data_broker (retired upstream 2025-12-12; typed Error::NoData) | MISORTWDDataBroker getfuelmix | retired endpoint answers as documented: https://api.misoenergy.org/MISORTWDDataBroker/DataBrokerServices.asmx returned no data (feed retired or not yet published) | 11-19 02:28Z | pass |
 
-**Gated behind the non-default `miso-dataexchange` cargo feature: untested, no account.** The Data
+Every row above ran with `miso-public-web` enabled (the website routes; opt-in, see the warning at
+the top). **Gated behind the non-default `miso-dataexchange` cargo feature: untested, no account.** The Data
 Exchange API (`apim.misoenergy.org`: `data_exchange_page`, `data_exchange_all_pages`,
 `pricing_page`, `ClientBuilder::api_key`, `Error::MissingApiKey`) needs a MISO account (sign-up asks
 for a phone number and company), which was not available, so the default build does not expose it.
@@ -120,11 +138,24 @@ retired on 2025-12-12 and is verified to fail the documented way (`Error::NoData
 ## Development
 
 ```text
-cargo test -p gridapi-miso                       # offline fixture tests
-cargo test -p gridapi-miso -- --ignored --nocapture   # live checks against MISO
+cargo test -p gridapi-miso --all-features        # offline fixture tests (default build: gating test only)
+cargo test -p gridapi-miso --features miso-public-web -- --ignored --nocapture   # live checks against MISO
 ```
+
+The live checks hit MISO's website hosts, whose terms bar automated access: run them only on your
+own machine with MISO's permission or at your own risk, and **never in public CI**.
 
 ## License
 
 GPL-3.0-or-later; see [LICENSE](../../LICENSE).
 Not affiliated with MISO; check MISO's terms of use for the data you republish.
+
+## Terms, attribution and notices
+
+MISO's website terms prohibit automated access to misoenergy.org; use the Data Exchange API (https://data-exchange.misoenergy.org/) with your own key.
+
+MISO's website terms (https://www.misoenergy.org/meet-miso/legal-and-privacy/) say: "You agree not use any automated means, including, without limitation, agents, robots, scripts, or spiders, to access, monitor, or copy any part of this Website or the App." The routes that script `public-api.misoenergy.org` and `docs.misoenergy.org` are therefore behind the off-by-default cargo feature `miso-public-web`. The route MISO provides for programmatic access is the Data Exchange API (https://data-exchange.misoenergy.org/), behind the `miso-dataexchange` feature, with your own key.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they hit MISO's website hosts, whose terms bar automated access.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

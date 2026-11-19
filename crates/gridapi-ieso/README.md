@@ -143,3 +143,13 @@ on the next pass and with curl.
 
 GPL-3.0-or-later. Not affiliated with or endorsed by the IESO. Check IESO's
 terms of use for your intended use of the data.
+
+## Terms, attribution and notices
+
+Copyright © 2004-2026 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website ( www.ieso.ca )
+
+Include the copyright line above on any reproduction of IESO content, including sample output derived from IESO files. The year in the line is the current one in IESO's terms (https://www.ieso.ca/terms-of-use) and changes annually.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they hit IESO's servers from whatever machine runs them.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

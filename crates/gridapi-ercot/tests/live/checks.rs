@@ -357,6 +357,8 @@ pub async fn fuel_mix(client: &Client) -> Check {
     ))
 }
 
+/// Downloads real archive documents on every call. ERCOT allows 3 downloads of the same report
+/// per 12 months (https://www.ercot.com/help/terms/data-portal): do not run this repeatedly.
 pub async fn archive(client: &Client) -> Check {
     let now = central_now();
     let listing = ctx(

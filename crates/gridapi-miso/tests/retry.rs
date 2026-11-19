@@ -1,5 +1,6 @@
 //! Retry, backoff and header behaviour against an in-process server.
 
+#![cfg(feature = "miso-public-web")]
 #![allow(
     clippy::expect_used,
     clippy::unwrap_used,

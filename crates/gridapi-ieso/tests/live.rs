@@ -2,6 +2,8 @@
 //!
 //! Run with: `cargo test -p gridapi-ieso --test live -- --ignored --nocapture`
 //! The assertions use dates that IESO has already settled, so they stay true.
+//!
+//! NEVER run these in public CI: they hit IESO's servers from whatever machine runs them. Use your own credentials on your own machine.
 #![allow(
     clippy::expect_used,
     clippy::assert_is_empty,

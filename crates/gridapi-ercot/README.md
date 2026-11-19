@@ -133,3 +133,15 @@ method passed.
 ## License
 
 GPL-3.0-or-later.
+
+## Terms, attribution and notices
+
+ERCOT API use is subject to ERCOT's Terms of Use for the ERCOT API (https://www.ercot.com/help/terms/data-portal). Register your own account; do not share credentials. 'ERCOT' is a trademark of ERCOT.
+
+Download cap: ERCOT's Data Access Portal terms say "You may not download the same report from the Data Access Portal more than three times within a 12-month period". `Client::download_archive` and `Client::download_archives` do not enforce it: download each report once and keep it. The archive live check downloads real documents on every run, so do not run it repeatedly.
+
+Create your ERCOT account yourself with your real name (ERCOT bars bot-registered accounts and misrepresenting your identity) and never share the credentials. ERCOT's name and logo are used only descriptively; no logo is used here.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they use your own ERCOT credentials, which must not be shared, and ERCOT caps downloads of the same report at 3 per 12 months.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

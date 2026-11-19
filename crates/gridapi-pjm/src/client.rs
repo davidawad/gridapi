@@ -1,6 +1,8 @@
 //! The HTTP client: auth, throttling, retry and paging.
 
-use std::sync::{Arc, RwLock};
+use std::sync::Arc;
+#[cfg(feature = "pjm-public-web-key")]
+use std::sync::RwLock;
 use std::time::Duration;
 
 use rand::Rng;
@@ -8,10 +10,12 @@ use reqwest::header::{HeaderValue, RETRY_AFTER};
 use serde::de::DeserializeOwned;
 use serde::Deserialize;
 
-use crate::auth::{fetch_public_key_with, ApiKey, KeyMode, DEFAULT_SETTINGS_URL};
+use crate::auth::{ApiKey, KeyMode};
 use crate::catalog::{FeedMetadata, FeedSummary};
 use crate::error::{snippet, BoxError, Error, FieldError};
 use crate::page::{Page, Row};
+#[cfg(feature = "pjm-public-web-key")]
+use crate::public_key::{fetch_public_key_with, DEFAULT_SETTINGS_URL};
 use crate::query::Query;
 use crate::throttle::{backoff_delay, RateLimit, RetryPolicy, Throttle};
 
@@ -28,7 +32,10 @@ const DEFAULT_TIMEOUT: Duration = Duration::from_secs(120);
 #[derive(Debug, Clone)]
 pub struct ClientBuilder {
     base_url: String,
+    #[cfg(feature = "pjm-public-web-key")]
     settings_url: String,
+    #[cfg(feature = "pjm-public-web-key")]
+    public_key_acknowledged: bool,
     user_agent: String,
     key_mode: KeyMode,
     rate_limit: Option<RateLimit>,
@@ -40,7 +47,10 @@ impl Default for ClientBuilder {
     fn default() -> Self {
         Self {
             base_url: DEFAULT_BASE_URL.to_owned(),
+            #[cfg(feature = "pjm-public-web-key")]
             settings_url: DEFAULT_SETTINGS_URL.to_owned(),
+            #[cfg(feature = "pjm-public-web-key")]
+            public_key_acknowledged: false,
             user_agent: concat!("gridapi-pjm/", env!("CARGO_PKG_VERSION")).to_owned(),
             key_mode: KeyMode::Auto,
             rate_limit: Some(RateLimit::NON_MEMBER),
@@ -60,10 +70,34 @@ impl ClientBuilder {
     }
 
     /// Where to fetch the public web-app key from
-    /// ([`DEFAULT_SETTINGS_URL`] by default).
+    /// ([`DEFAULT_SETTINGS_URL`] by default). Only with the
+    /// `pjm-public-web-key` feature.
+    #[cfg(feature = "pjm-public-web-key")]
     #[must_use]
     pub fn settings_url(mut self, url: impl Into<String>) -> Self {
         self.settings_url = url.into();
+        self
+    }
+
+    /// Acknowledge that `KeyMode::PublicWebApp` uses the subscription key
+    /// PJM's own Data Miner 2 web app ships, which is not issued to you, and
+    /// that you accept the risk of using it. [`build`](Self::build) refuses
+    /// `KeyMode::PublicWebApp` without this call. Only with the
+    /// `pjm-public-web-key` feature; prefer your own key from
+    /// <https://apiportal.pjm.com/>.
+    ///
+    /// PJM's Data Miner 2 terms apply "whether as a guest or a registered
+    /// user"; "non-members are specifically prohibited from republishing
+    /// data"; you may not access the tools "more than ... six (6) times per
+    /// minute for non-members", or "reverse engineer, disassemble, decompile,
+    /// decode, adapt, or otherwise attempt to derive or gain access to the
+    /// source of the Data or methods used to compile the Data". PJM's
+    /// documented route for automated queries is a registered PJM account, and
+    /// non-member accounts confirm internal business use only.
+    #[cfg(feature = "pjm-public-web-key")]
+    #[must_use]
+    pub fn i_accept_pjm_public_key_risk(mut self) -> Self {
+        self.public_key_acknowledged = true;
         self
     }
 
@@ -120,13 +154,20 @@ impl ClientBuilder {
     /// Build the client.
     ///
     /// # Errors
-    /// [`Error::InvalidKey`] when `KeyMode::Auto` finds an unusable
-    /// `PJM_API_KEY`; [`Error::Transport`] when the HTTP stack cannot start.
+    /// [`Error::MissingKey`] when `KeyMode::Auto` finds no `PJM_API_KEY`;
+    /// [`Error::InvalidKey`] when it finds an unusable one;
+    /// [`Error::Transport`] when the HTTP stack cannot start. With the
+    /// `pjm-public-web-key` feature, `Error::PublicKeyNotAcknowledged` when
+    /// `KeyMode::PublicWebApp` was chosen without `i_accept_pjm_public_key_risk`.
     pub fn build(self) -> Result<Client, Error> {
         let mode = match self.key_mode {
             KeyMode::Auto => KeyMode::from_env()?,
             other => other,
         };
+        #[cfg(feature = "pjm-public-web-key")]
+        if matches!(mode, KeyMode::PublicWebApp) && !self.public_key_acknowledged {
+            return Err(Error::PublicKeyNotAcknowledged);
+        }
         let http = reqwest::Client::builder()
             .user_agent(&self.user_agent)
             .timeout(self.timeout)
@@ -137,6 +178,7 @@ impl ClientBuilder {
             inner: Arc::new(Inner {
                 http,
                 base_url: self.base_url.trim_end_matches('/').to_owned(),
+                #[cfg(feature = "pjm-public-web-key")]
                 settings_url: self.settings_url,
                 key: KeySlot::new(mode),
                 throttle: Throttle::new(self.rate_limit),
@@ -157,6 +199,7 @@ pub struct Client {
 struct Inner {
     http: reqwest::Client,
     base_url: String,
+    #[cfg(feature = "pjm-public-web-key")]
     settings_url: String,
     key: KeySlot,
     throttle: Throttle,
@@ -172,6 +215,7 @@ const _: () = {
 #[derive(Debug)]
 struct KeySlot {
     user: Option<ApiKey>,
+    #[cfg(feature = "pjm-public-web-key")]
     cached: RwLock<Option<ApiKey>>,
 }
 
@@ -182,10 +226,17 @@ impl KeySlot {
                 KeyMode::User(key) => Some(key),
                 _ => None,
             },
+            #[cfg(feature = "pjm-public-web-key")]
             cached: RwLock::new(None),
         }
     }
 
+    /// True when a 401 is worth one refetch of the key (public key only).
+    fn refreshable(&self) -> bool {
+        cfg!(feature = "pjm-public-web-key") && self.user.is_none()
+    }
+
+    #[cfg(feature = "pjm-public-web-key")]
     fn cached(&self) -> Option<ApiKey> {
         self.cached
             .read()
@@ -193,6 +244,7 @@ impl KeySlot {
             .clone()
     }
 
+    #[cfg(feature = "pjm-public-web-key")]
     fn store(&self, key: ApiKey) {
         *self
             .cached
@@ -201,6 +253,7 @@ impl KeySlot {
     }
 
     /// Forget `rejected` unless another task already replaced it.
+    #[cfg(feature = "pjm-public-web-key")]
     fn invalidate(&self, rejected: &ApiKey) {
         let mut guard = self
             .cached
@@ -210,6 +263,10 @@ impl KeySlot {
             *guard = None;
         }
     }
+
+    #[cfg(not(feature = "pjm-public-web-key"))]
+    #[allow(clippy::unused_self)]
+    fn invalidate(&self, _rejected: &ApiKey) {}
 }
 
 /// What to do with one HTTP response.
@@ -289,11 +346,12 @@ fn transport(e: reqwest::Error) -> Error {
 }
 
 impl Client {
-    /// A client with default settings: `PJM_API_KEY` when set, else the public
-    /// web-app key; the non-member rate limit; 3 retries.
+    /// A client with default settings: the key in `PJM_API_KEY`; the
+    /// non-member rate limit; 3 retries.
     ///
     /// # Errors
-    /// As [`ClientBuilder::build`].
+    /// [`Error::MissingKey`] when `PJM_API_KEY` is unset; otherwise as
+    /// [`ClientBuilder::build`].
     pub fn new() -> Result<Self, Error> {
         Self::builder().build()
     }
@@ -304,7 +362,9 @@ impl Client {
         ClientBuilder::default()
     }
 
-    /// The key to send now, fetching the public key on first use.
+    /// The key to send now (with the `pjm-public-web-key` feature, fetching
+    /// the public key on first use).
+    #[cfg(feature = "pjm-public-web-key")]
     async fn current_key(&self) -> Result<ApiKey, Error> {
         let slot = &self.inner.key;
         if let Some(user) = &slot.user {
@@ -319,6 +379,13 @@ impl Client {
         Ok(key)
     }
 
+    /// The key to send now: always the user's own key (the public web-app key
+    /// needs the `pjm-public-web-key` feature).
+    #[cfg(not(feature = "pjm-public-web-key"))]
+    fn current_key(&self) -> std::future::Ready<Result<ApiKey, Error>> {
+        std::future::ready(self.inner.key.user.clone().ok_or(Error::MissingKey))
+    }
+
     /// GET `url` with the key header, honouring throttle, retry and the
     /// one-shot public-key refresh on 401. Returns the body of a 2xx.
     async fn get(&self, url: &str, params: &[(String, String)]) -> Result<Vec<u8>, Error> {
@@ -330,7 +397,7 @@ impl Client {
             let outcome = self.send_once(url, params, &key).await;
             match outcome {
                 Outcome::Success(body) => return Ok(body),
-                Outcome::KeyRejected if self.inner.key.user.is_none() && !refreshed => {
+                Outcome::KeyRejected if self.inner.key.refreshable() && !refreshed => {
                     tracing::warn!(
                         "gridapi-pjm: public key rejected (401); refetching settings.json"
                     );

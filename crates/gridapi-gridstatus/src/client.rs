@@ -515,7 +515,7 @@ mod tests {
         }
     }
 
-    /// Regression: requests spaced exactly 1 s apart drew `429 Too Many Requests.
+    /// Regression (): requests spaced exactly 1 s apart drew `429 Too Many Requests.
     /// Limit: 1 per 1 second` from the live API, each retry spending a budgeted request.
     #[test]
     fn default_spacing_leaves_headroom_over_the_servers_one_second_window() {

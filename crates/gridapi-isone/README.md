@@ -195,3 +195,13 @@ Fixtures in `tests/fixtures/` (CSV) are synthetic: the real response shapes, fie
 This is an independent client for publicly posted files and a documented API. It is
 not affiliated with or endorsed by ISO New England. Check ISO-NE's terms of use before
 heavy automated retrieval, and keep the default retry backoff in place.
+
+## Terms, attribution and notices
+
+Data from ISO New England. Content is protected by copyright; non-personal use may require permission (https://www.iso-ne.com/legal-privacy).
+
+Respect ISO-NE's throttling policy: excessive concurrent or invalid-URL requests can be throttled. A day-range query requests one file per day and reports days ISO-NE has no file for as missing, so ask only for dates you expect to exist. Non-personal use of ISO-NE content may require permission: contact info@iso-ne.com.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they hit ISO-NE's servers, which throttle excessive or invalid requests.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

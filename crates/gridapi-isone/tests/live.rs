@@ -4,6 +4,8 @@
 //! The keyless ISO Express tests need no account. The authenticated Web Services tests
 //! are behind the `isone-webservices` feature (UNTESTED: there is no account); they print
 //! `SKIPPED` without `ISONE_USERNAME` and `ISONE_PASSWORD`.
+//!
+//! NEVER run these in public CI: they hit ISO-NE's servers, which throttle excessive or invalid requests. Use your own credentials on your own machine.
 
 // Live tests fail loudly with `expect`, and `assert!(x.is_empty())` reads best.
 #![allow(

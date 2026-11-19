@@ -119,3 +119,13 @@ cargo test -p gridapi-spp -- --ignored --nocapture # live checks against the por
 
 GPL-3.0-or-later; see [LICENSE](../../LICENSE).
 Not affiliated with SPP; check SPP's terms of use (the portal's acceptable-use policy) for the data you republish.
+
+## Terms, attribution and notices
+
+Source: Southwest Power Pool. SPP's terms require written authorization for commercial use; see https://www.spp.org/terms-conditions/ and SPP's External Systems Acceptable Use Policy.
+
+SPP's terms require prior, express written authorization for any commercial use of its materials, and its External Systems Acceptable Use Policy (https://www.spp.org/documents/22819/spp_external_systems_acceptable_use_policy%20final%20approved.pdf) asks that polling be no more frequent than necessary: do not poll faster than the data's publication interval.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they hit SPP's portal, whose acceptable-use policy limits polling.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

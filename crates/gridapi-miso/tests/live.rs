@@ -1,7 +1,10 @@
 //! Live checks against MISO's public hosts. Run with `cargo test -p gridapi-miso -- --ignored --nocapture`.
 //!
 //! Each test prints sample values; those are what the README's "Verified" section records.
+//!
+//! NEVER run these in public CI: they hit MISO's website hosts, whose terms bar automated access. Use your own credentials on your own machine.
 
+#![cfg(feature = "miso-public-web")]
 #![allow(
     clippy::expect_used,
     clippy::unwrap_used,
@@ -146,19 +149,4 @@ async fn live_retired_broker() {
     let err = c.data_broker("getfuelmix").await.expect_err("retired");
     println!("broker: {err}");
     assert!(matches!(err, Error::NoData { .. }));
-}
-
-/// The Data Exchange gateway needs a MISO account we do not have: untested, behind a feature.
-#[cfg(feature = "miso-dataexchange")]
-#[tokio::test]
-#[ignore = "needs MISO_API_KEY (no account); the feature is untested"]
-async fn live_data_exchange_needs_a_key() {
-    let keyless = client()
-        .data_exchange_page(
-            "pricing/v1/day-ahead/2026-11-16/lmp-expost",
-            &gridapi_miso::DataExchangeQuery::new(),
-        )
-        .await
-        .expect_err("no key");
-    assert!(matches!(keyless, Error::MissingApiKey));
 }

@@ -272,7 +272,7 @@ mod tests {
         assert_eq!(newest_names(&entries, 2, 4), vec!["2026", "2025"]);
     }
 
-    /// Regression: the live portal root lists `RePrice` after `2026`, and the
+    /// Regression (): the live portal root lists `RePrice` after `2026`, and the
     /// newest-name sort picked it as the newest year, so `newest_file` failed with
     /// "nothing found under `/RePrice/*/By_Day`".
     #[test]

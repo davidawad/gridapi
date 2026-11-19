@@ -3,6 +3,8 @@
 //!
 //! One client is shared by all OASIS requests so they are paced together; the
 //! whole suite takes about a minute because OASIS allows one request per 5 s.
+//!
+//! NEVER run these in public CI: OASIS allows one request per 5 s and its terms bar load or benchmarking use. Use your own credentials on your own machine.
 
 // Tests return `Result` so `?` can propagate, and assert inside them.
 #![allow(

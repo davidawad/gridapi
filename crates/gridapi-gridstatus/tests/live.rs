@@ -7,6 +7,8 @@
 //!
 //! Each test builds a client with a hard request budget equal to the requests
 //! it expects to need, so a bug cannot burn the quota.
+//!
+//! NEVER run these in public CI: they spend your Grid Status quota and a Grid Status key must not be shared or exposed. Use your own credentials on your own machine.
 #![allow(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
 
 use gridapi_gridstatus::{Client, Iso, Query};

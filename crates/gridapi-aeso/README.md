@@ -132,3 +132,13 @@ redacted from all output). Nothing is feature-gated: every method passed.
 
 GPL-3.0-or-later. Not affiliated with or endorsed by the AESO. Respect AESO's
 terms of use (non-commercial, personal or educational use unless authorised).
+
+## Terms, attribution and notices
+
+AESO material may be used and copied for non-commercial, personal or educational purposes, unmodified, with copyright notices retained; any other use needs AESO's written permission (https://www.aeso.ca/legal/).
+
+AESO data is for non-commercial, personal or educational use only, unmodified, with copyright notices retained; anything else needs AESO's written permission. Do not use an AESO key for commercial work.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they use your personal AESO key, whose terms are non-commercial.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

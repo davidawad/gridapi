@@ -12,6 +12,13 @@ publish = false
 
 [features]
 default = []
+# MISO's website-hosted routes: the keyless public API (public-api.misoenergy.org), the
+# market report files (docs.misoenergy.org) and the retired data broker. OFF by default
+# because MISO's website terms bar "any automated means, including, without limitation,
+# agents, robots, scripts, or spiders" on misoenergy.org (terms review). The
+# supported route is the keyed Data Exchange API (`miso-dataexchange`). Enable this only
+# with MISO's permission or at your own risk; see the README.
+miso-public-web = ["dep:csv"]
 # The keyed Data Exchange API (apim.misoenergy.org): Client::data_exchange_page /
 # data_exchange_all_pages / pricing_page, ClientBuilder::api_key. UNTESTED, no MISO
 # account (sign-up asks for a phone number and company), so it is off by default
@@ -20,7 +27,7 @@ miso-dataexchange = []
 
 [dependencies]
 chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
-csv = "1"
+csv = { version = "1", optional = true }
 fastrand = "2"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip"] }
 serde = { version = "1", features = ["derive"] }

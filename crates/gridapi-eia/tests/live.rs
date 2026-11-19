@@ -7,6 +7,8 @@
 //! The key is read from `EIA_API_KEY` at runtime and never printed. Each test
 //! prints the values it observed (the README "Verified" section is copied
 //! from this output).
+//!
+//! NEVER run these in public CI: they use your own EIA key and the real EIA API. Use your own credentials on your own machine.
 #![allow(
     clippy::expect_used,
     clippy::panic,

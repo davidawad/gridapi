@@ -156,3 +156,13 @@ runs on a workstation. Earlier curl-only observations that still hold:
 
 Offline suites (pod): 42 unit + 18 client (scripted local server: pacing, 429/5xx/timeout retries,
 chunking, redirect) + 10 fixture + 4 doctests. Nothing is feature-gated: every method passed.
+
+## Terms, attribution and notices
+
+Contains data from the California ISO. Use is subject to the CAISO Terms of Use and API Terms of Use (https://www.caiso.com/privacy-terms-of-use).
+
+CAISO's API terms state that CAISO owns the CAISO API and CAISO Data, and prohibit using the API for monitoring, benchmarking or competitive purposes: read them before use. This repository publishes no OASIS uptime or latency benchmarks. Keep the default request pacing, and keep live tests small.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: OASIS allows one request per 5 s and its terms bar load or benchmarking use.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

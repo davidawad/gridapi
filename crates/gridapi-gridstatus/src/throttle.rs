@@ -84,7 +84,7 @@ mod tests {
         assert_eq!(t.reserve(0), 2_000_000_000);
     }
 
-    /// Regression: a slow response must push the next send back by a full
+    /// Regression (): a slow response must push the next send back by a full
     /// interval from its completion.
     #[test]
     fn a_slow_response_delays_the_next_slot_from_its_completion() {

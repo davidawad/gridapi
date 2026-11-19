@@ -29,6 +29,15 @@ pub enum Error {
     #[error("invalid query: {0}")]
     InvalidQuery(String),
 
+    /// No subscription key was supplied: `KeyMode::Auto` found no
+    /// `PJM_API_KEY`. Register your own key at <https://apiportal.pjm.com/>
+    /// (non-members confirm internal business use with PJM when they register).
+    #[error(
+        "no PJM subscription key: set PJM_API_KEY or pass ClientBuilder::api_key; \
+         register for a key at https://apiportal.pjm.com/"
+    )]
+    MissingKey,
+
     /// The subscription key is syntactically unusable (empty, non-ASCII, ...).
     #[error("invalid subscription key: {0}")]
     InvalidKey(&'static str),
@@ -37,9 +46,9 @@ pub enum Error {
     #[error("transport error: {0}")]
     Transport(#[source] BoxError),
 
-    /// HTTP 401. For the public web-app key this is returned only after one
-    /// refetch of `settings.json` also failed; for a user key it is returned
-    /// immediately.
+    /// HTTP 401. For a user key it is returned immediately (with the
+    /// `pjm-public-web-key` feature, a public web-app key is refetched once
+    /// first).
     #[error("unauthorized (HTTP 401): the subscription key was rejected")]
     Unauthorized,
 
@@ -89,9 +98,22 @@ pub enum Error {
         snippet: String,
     },
 
-    /// The public web-app subscription key could not be obtained.
+    /// The public web-app subscription key could not be obtained. Only with
+    /// the `pjm-public-web-key` feature.
+    #[cfg(feature = "pjm-public-web-key")]
     #[error("could not obtain the public subscription key: {0}")]
     PublicKey(String),
+
+    /// `KeyMode::PublicWebApp` was selected without
+    /// `ClientBuilder::i_accept_pjm_public_key_risk()`. Only with the
+    /// `pjm-public-web-key` feature.
+    #[cfg(feature = "pjm-public-web-key")]
+    #[error(
+        "the PJM public web-app key is not issued to you: call \
+         ClientBuilder::i_accept_pjm_public_key_risk() to use it anyway, or register your own key at \
+         https://apiportal.pjm.com/"
+    )]
+    PublicKeyNotAcknowledged,
 }
 
 impl Error {

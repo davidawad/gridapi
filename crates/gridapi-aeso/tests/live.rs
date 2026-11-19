@@ -3,6 +3,8 @@
 //! Run with:
 //! `AESO_API_KEY=... cargo test -p gridapi-aeso --test live -- --ignored --nocapture`
 //! Assertions use dates AESO has already settled, so they stay true.
+//!
+//! NEVER run these in public CI: they use your personal AESO key, whose terms are non-commercial. Use your own credentials on your own machine.
 #![allow(
     clippy::expect_used,
     clippy::assert_is_empty,

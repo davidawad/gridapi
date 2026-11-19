@@ -45,17 +45,20 @@ fn user_client(server: &MockServer, key: &str) -> Client {
         .unwrap()
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 fn public_client(server: &MockServer) -> Client {
     Client::builder()
         .base_url(format!("{}/api/v1", server.uri()))
         .settings_url(format!("{}/config/settings.json", server.uri()))
         .key_mode(KeyMode::PublicWebApp)
+        .i_accept_pjm_public_key_risk()
         .unthrottled()
         .retry(fast_retry(3))
         .build()
         .unwrap()
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 fn settings(key: &str) -> String {
     format!(r#"{{"baseUrl":"x","subscriptionKey":"{key}","tool":"Data Miner 2"}}"#)
 }
@@ -140,6 +143,7 @@ async fn catalog_and_metadata() {
     assert!(md.filterable().any(|c| c.field_name == "pnode_id"));
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 #[tokio::test]
 async fn public_key_is_fetched_once_and_reused() {
     let server = MockServer::start().await;
@@ -161,6 +165,7 @@ async fn public_key_is_fetched_once_and_reused() {
     assert_eq!(a.map(|p| p.pnode_name), Some("WESTERN HUB".to_owned()));
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 #[tokio::test]
 async fn rotated_public_key_is_refetched_on_401_and_the_call_succeeds() {
     let server = MockServer::start().await;
@@ -195,6 +200,7 @@ async fn rotated_public_key_is_refetched_on_401_and_the_call_succeeds() {
     assert_eq!(rows.len(), 3);
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 #[tokio::test]
 async fn public_key_still_rejected_after_refetch_is_unauthorized() {
     let server = MockServer::start().await;
@@ -212,6 +218,7 @@ async fn public_key_still_rejected_after_refetch_is_unauthorized() {
     assert!(err.is_unauthorized(), "{err}");
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 #[tokio::test]
 async fn user_key_401_is_returned_without_touching_settings() {
     let server = MockServer::start().await;
@@ -235,6 +242,7 @@ async fn user_key_401_is_returned_without_touching_settings() {
     assert!(client.pnode(1).await.unwrap_err().is_unauthorized());
 }
 
+#[cfg(feature = "pjm-public-web-key")]
 #[tokio::test]
 async fn unreachable_settings_is_a_public_key_error() {
     let server = MockServer::start().await;

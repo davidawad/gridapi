@@ -2,12 +2,18 @@
 //! non-member limit of 6 requests per minute makes them slow):
 //!
 //! ```text
-//! cargo test -p gridapi-pjm --test live -- --ignored --nocapture --test-threads=1
+//! PJM_API_KEY=<your key> cargo test -p gridapi-pjm --test live -- --ignored --nocapture --test-threads=1
 //! ```
 //!
-//! They use the public web-app key unless `PJM_API_KEY` is set (then
-//! `live_public_key_end_to_end` still forces the public key; set the variable
-//! to exercise `live_user_key_mode` with your own key).
+//! NEVER run these in public CI: they need your own PJM key (register at
+//! <https://apiportal.pjm.com/>; keys must not be shared or leaked into logs)
+//! and PJM limits non-members to 6 requests per minute.
+//!
+//! They need `PJM_API_KEY`. Only when the crate is built with the opt-in
+//! `pjm-public-web-key` feature and `PJM_API_KEY` is unset do they fall back
+//! to the public key PJM's own web app ships, behind the explicit
+//! `i_accept_pjm_public_key_risk()` acknowledgement; that key is not issued
+//! to you (see the PJM terms quoted on `KeyMode::PublicWebApp`).
 #![allow(
     clippy::unwrap_used,
     clippy::expect_used,
@@ -16,10 +22,7 @@
 )]
 
 use chrono::{Duration, NaiveDate, Utc};
-use gridapi_pjm::{
-    fetch_public_key, ApiKey, Client, Error, KeyMode, LmpRequest, LoadRequest, PnodeRequest, Query,
-    Row, DEFAULT_SETTINGS_URL,
-};
+use gridapi_pjm::{ApiKey, Client, Error, LmpRequest, LoadRequest, PnodeRequest, Query, Row};
 
 /// Western Hub, the benchmark node.
 const WESTERN_HUB: u64 = 51288;
@@ -28,17 +31,31 @@ fn days_ago(n: i64) -> NaiveDate {
     (Utc::now() - Duration::days(n)).date_naive()
 }
 
-fn public_client() -> Client {
-    Client::builder()
-        .key_mode(KeyMode::PublicWebApp)
+/// A client on `PJM_API_KEY`; with the opt-in `pjm-public-web-key` feature and
+/// no `PJM_API_KEY`, on the public web-app key (explicitly acknowledged).
+fn live_client() -> Client {
+    let builder = Client::builder();
+    #[cfg(feature = "pjm-public-web-key")]
+    let builder = if std::env::var(gridapi_pjm::API_KEY_ENV)
+        .ok()
+        .filter(|k| !k.trim().is_empty())
+        .is_none()
+    {
+        builder
+            .key_mode(gridapi_pjm::KeyMode::PublicWebApp)
+            .i_accept_pjm_public_key_risk()
+    } else {
+        builder
+    };
+    builder
         .build()
-        .expect("client builds")
+        .expect("set PJM_API_KEY (register at https://apiportal.pjm.com/)")
 }
 
 #[tokio::test]
 #[ignore = "network: api.pjm.com"]
-async fn live_public_key_end_to_end() {
-    let client = public_client();
+async fn live_end_to_end() {
+    let client = live_client();
 
     // Catalog and metadata.
     let feeds = client.feeds().await.unwrap();
@@ -186,7 +203,7 @@ async fn live_public_key_end_to_end() {
 #[tokio::test]
 #[ignore = "network: api.pjm.com"]
 async fn live_five_minute_load_forecast_and_paging() {
-    let client = public_client();
+    let client = live_client();
     let rows = client
         .very_short_load_frcst(
             Query::new()
@@ -213,17 +230,23 @@ async fn live_five_minute_load_forecast_and_paging() {
 }
 
 #[tokio::test]
-#[ignore = "network: api.pjm.com and dataminer2.pjm.com"]
+#[ignore = "network: api.pjm.com (and dataminer2.pjm.com with pjm-public-web-key)"]
 async fn live_user_key_mode() {
-    // Use the key you provisioned when PJM_API_KEY is set; otherwise borrow the
-    // public key so the user-key code path (no settings.json refetch) still runs.
-    let key = match std::env::var("PJM_API_KEY")
+    // Use the key you provisioned. Only with the opt-in `pjm-public-web-key`
+    // feature and no PJM_API_KEY, borrow the public key so the user-key code
+    // path (no settings.json refetch) still runs.
+    let provisioned = std::env::var("PJM_API_KEY")
         .ok()
-        .filter(|k| !k.trim().is_empty())
-    {
+        .filter(|k| !k.trim().is_empty());
+    #[cfg(feature = "pjm-public-web-key")]
+    let key = match provisioned {
         Some(k) => ApiKey::new(k).unwrap(),
-        None => fetch_public_key(DEFAULT_SETTINGS_URL).await.unwrap(),
+        None => gridapi_pjm::fetch_public_key(gridapi_pjm::DEFAULT_SETTINGS_URL)
+            .await
+            .unwrap(),
     };
+    #[cfg(not(feature = "pjm-public-web-key"))]
+    let key = ApiKey::new(provisioned.expect("set PJM_API_KEY")).unwrap();
     let client = Client::builder().api_key(key).build().unwrap();
     let hub = client.pnode(WESTERN_HUB).await.unwrap().unwrap();
     println!("user-key mode: pnode {} = {}", hub.pnode_id, hub.pnode_name);

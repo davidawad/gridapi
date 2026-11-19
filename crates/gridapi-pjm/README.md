@@ -19,7 +19,7 @@ use gridapi_pjm::{Client, LmpRequest};
 
 #[tokio::main]
 async fn main() -> Result<(), gridapi_pjm::Error> {
-    // PJM_API_KEY if set, otherwise the public key the Data Miner 2 web app ships.
+    // Reads PJM_API_KEY (register at https://apiportal.pjm.com/); there is no keyless default.
     let client = Client::new()?;
 
     // Day-ahead LMPs at Western Hub (pnode 51288) for one day.
@@ -51,8 +51,8 @@ let all: Vec<Row> = client.query_all("da_hrl_lmps", &q).await?; // follows start
 # Ok(()) }
 ```
 
-`cargo run -p gridapi-pjm --example quickstart -- 2026-11-17` prints a day of
-Western Hub prices.
+`PJM_API_KEY=... cargo run -p gridapi-pjm --example quickstart -- 2026-11-17` prints
+a day of Western Hub prices.
 
 ## Endpoints covered
 
@@ -82,20 +82,41 @@ Datetimes in typed rows are `chrono::NaiveDateTime` exactly as PJM sends them:
 
 ## Keys
 
+You need your own PJM subscription key: register a PJM Tools account and get a
+key at <https://apiportal.pjm.com/>. PJM's API guide says non-member accounts
+must confirm by email to accountmanager@pjm.com that the PJM data "will be used
+for internal business purposes only". Set it as `PJM_API_KEY`, or pass it with
+`ClientBuilder::api_key(ApiKey::new(..)?)`.
+
 | `KeyMode` | Key sent | On 401 |
 | --- | --- | --- |
-| `Auto` (default) | `PJM_API_KEY` if set and non-empty, else the public key | as below |
+| `Auto` (default) | `PJM_API_KEY` if set and non-empty; otherwise building the client fails with `Error::MissingKey` (it names <https://apiportal.pjm.com/>). **Never falls back to another key.** | `Error::Unauthorized` |
 | `User(ApiKey)` | the key you provisioned at <https://apiportal.pjm.com/> | `Error::Unauthorized` |
-| `PublicWebApp` | `subscriptionKey` from <https://dataminer2.pjm.com/config/settings.json>, fetched on first use | refetch `settings.json` once and retry; then `Error::Unauthorized` |
+| `PublicWebApp` (only with the off-by-default cargo feature `pjm-public-web-key`) | `subscriptionKey` from PJM's Data Miner 2 web app config, fetched on first use | refetch once and retry; then `Error::Unauthorized` |
 
 The key travels in the `Ocp-Apim-Subscription-Key` header and is never logged
 (`ApiKey`'s `Debug` is redacted).
 
-The public key is the one PJM's own web app ships, so it works without
-registration and rotates without notice. PJM's non-member terms limit use of
-Data Miner data to internal business purposes, and commercial use or
-republication needs PJM membership; get your own key for anything beyond
-experimentation.
+### The public web-app key (opt-in, not recommended)
+
+PJM's own Data Miner 2 web app ships a subscription key in a public config file.
+That key is issued to PJM's web app, not to you, and PJM's documented route for
+automated queries is a registered PJM account. This crate therefore does not use
+it unless you opt in twice: enable the cargo feature `pjm-public-web-key` (off by
+default), and call `ClientBuilder::i_accept_pjm_public_key_risk()` next to
+`key_mode(KeyMode::PublicWebApp)`; `build()` refuses `PublicWebApp` without that
+call (`Error::PublicKeyNotAcknowledged`).
+
+PJM's Data Miner 2 terms of use apply "whether as a guest or a registered user".
+They say "non-members are specifically prohibited from republishing data", bar
+accessing the tools "more than ... six (6) times per minute for non-members", and
+bar attempts to "reverse engineer, disassemble, decompile, decode, adapt, or
+otherwise attempt to derive or gain access to the source of the Data or methods
+used to compile the Data". The Data Miner page says "Automatic queries can be
+received with a PJM account through the Data Miner application program
+interfaces (API)" and that data "is for internal use only and redistribution ...
+is strictly prohibited without an active PJM Membership". The mode is the
+caller's risk; get your own key instead.
 
 ## Rate limits
 
@@ -138,11 +159,15 @@ carrying PJM's field messages.
 * `tests/mock_server.rs`: a local `wiremock` server covering auth modes, the
   401 refetch, retry/back-off, paging, throttling and error mapping.
 * Live tests, ignored by default (they honour the 6-per-minute limit, so they
-  take a couple of minutes):
+  take a couple of minutes). They need your own `PJM_API_KEY`; **never run them
+  in public CI**:
 
   ```text
-  cargo test -p gridapi-pjm --test live -- --ignored --nocapture --test-threads=1
+  PJM_API_KEY=... cargo test -p gridapi-pjm --test live -- --ignored --nocapture --test-threads=1
   ```
+
+  Only with the opt-in `pjm-public-web-key` feature and no `PJM_API_KEY` do they
+  fall back to the public web-app key (explicitly acknowledged, see above).
 
 ## Verified
 
@@ -166,11 +191,24 @@ Every request-making public method of this crate was called through the crate's 
 | Client::query_all (paging) | load_frcstd_7_day RTO_COMBINED, row_count 50: expect >= 160 rows over >= 4 pages | 168 rows over 50-row pages | 11-19 02:30Z | pass |
 | Error::Rejected (no datetime filter on an LMP feed) | da_hrl_lmps with only pnode_ids, no datetime | typed rejection as designed: PJM rejected the request (HTTP 400): Filters: A datetime is missing. Please input values for datetime_beginning_ept or datetime_beginning_utc \| API_1041 \| A datetime is missing. Please input values for datetime_beginning_ept or datetime_beginning_utc | 11-19 02:30Z | pass |
 
+This run predates the key-mode gating: it used the public web-app key, now the opt-in `pjm-public-web-key` feature
+plus `i_accept_pjm_public_key_risk()` (the runner enables both; internal use). Its row names for
+`Client::new` and `key_mode(PublicWebApp)` are from that run; with a registered key, `Client::new` is the path.
 PJM's non-member limit is 6 requests a minute and the client paces itself to it, so the run takes
 about four minutes. Mock-server (21 tests) and fixture/unit suites pass offline; fixtures are synthetic
 (real shapes, invented values). Observed, not documented by PJM: sixteen back-to-back requests
 with the public key in 7 seconds all returned 200, so PJM does not appear to enforce the stated
 figure at that volume; the client still paces itself to it by default because the terms state it.
-Nothing is feature-gated: every method passed. A call that PJM rejects (`Sort field is not
+Every method passed (the public-key route is now behind the opt-in `pjm-public-web-key` feature, see Keys). A call that PJM rejects (`Sort field is not
 sortable` on `datetime_beginning_utc`) came from the runner's own query, not a client defect; the
 metadata marks only `datetime_beginning_ept` sortable.
+
+## Terms, attribution and notices
+
+Data Miner data is for internal use; non-members may not republish it (PJM Terms of Use, Data Miner 2). Non-member limit: 6 requests per minute.
+
+`KeyMode::Auto` reads `PJM_API_KEY` only and fails with `Error::MissingKey` (register at https://apiportal.pjm.com/; non-member accounts confirm internal business use with PJM). The key PJM's own web app ships is not issued to you: it is behind the off-by-default cargo feature `pjm-public-web-key` plus an explicit `i_accept_pjm_public_key_risk()` call.
+
+Live tests (`tests/live.rs`, and any live example) are `#[ignore]`d and are for your own machine with your own credentials. **Never run them in public CI**: they use your own PJM key and PJM limits non-members to 6 requests per minute.
+
+gridapi is an independent, unofficial client library. It is not affiliated with, endorsed by, or sponsored by ERCOT, PJM Interconnection, California ISO, NYISO, ISO New England, MISO, Southwest Power Pool, IESO, AESO, the U.S. Energy Information Administration or Grid Status Inc. All trademarks and names belong to their owners and are used only to identify the services the library talks to. No upstream data is redistributed by this repository; fixtures are synthetic except EIA fixtures, which are U.S. government public-domain data. Users must obtain their own credentials, follow each upstream's terms, and not share credentials.

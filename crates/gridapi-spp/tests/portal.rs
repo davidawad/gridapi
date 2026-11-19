@@ -146,7 +146,7 @@ async fn newest_file_descends_year_month_and_day() {
     assert_eq!(s.requests().len(), 4);
 }
 
-/// Regression: the live root of `da-lmp-by-settlement-location` lists a
+/// Regression (): the live root of `da-lmp-by-settlement-location` lists a
 /// `RePrice` folder after the years (listing captured 2026-11-18). `newest_file` took it for
 /// the newest year and failed with "nothing found under `/RePrice/*/By_Day`".
 #[tokio::test]

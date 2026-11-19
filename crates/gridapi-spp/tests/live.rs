@@ -1,6 +1,8 @@
 //! Live checks against the SPP portal. Run with `cargo test -p gridapi-spp -- --ignored --nocapture`.
 //!
 //! Each test prints sample values; those are what the README's "Verified" section records.
+//!
+//! NEVER run these in public CI: they hit SPP's portal, whose acceptable-use policy limits polling. Use your own credentials on your own machine.
 
 #![allow(
     clippy::expect_used,

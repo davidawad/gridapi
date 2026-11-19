@@ -6,6 +6,8 @@
 //!
 //! Mirrors `tests/live.rs` for environments where the test harness cannot run.
 //! The client's request budget is 2, so this can never spend more.
+//!
+//! NEVER run these in public CI: they spend your Grid Status quota and a Grid Status key must not be shared or exposed. Use your own credentials on your own machine.
 
 use gridapi_gridstatus::{Client, Query};
 

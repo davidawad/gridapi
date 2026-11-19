@@ -30,7 +30,7 @@ fn client(mock: &Mock) -> Client {
         .unwrap()
 }
 
-/// Regression: the live catalog failed to decode with `invalid value: integer
+/// Regression (): the live catalog failed to decode with `invalid value: integer
 /// -1, expected u64` (2026-11-18). The fixture is a real dataset record with the row
 /// estimate and rank set to -1, the values the live catalog carried.
 #[tokio::test]

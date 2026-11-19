@@ -2,7 +2,13 @@
 //!
 //! ```text
 //! cargo run -p gridapi-pjm --example quickstart -- 2026-11-17
-//! PJM_API_KEY=... cargo run -p gridapi-pjm --example quickstart   # your own key
+//! ```
+//!
+//! Needs `PJM_API_KEY` (register at <https://apiportal.pjm.com/>); there is no
+//! keyless default.
+//!
+//! ```text
+//! PJM_API_KEY=... cargo run -p gridapi-pjm --example quickstart
 //! ```
 
 use chrono::NaiveDate;
@@ -18,7 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .transpose()?
         .unwrap_or(NaiveDate::from_ymd_opt(2026, 11, 17).ok_or("bad default date")?);
 
-    // PJM_API_KEY when set, otherwise the public key the Data Miner 2 web app ships.
+    // Reads PJM_API_KEY; fails with Error::MissingKey when it is unset.
     let client = Client::new()?;
     println!("{} feeds in the catalog", client.feeds().await?.len());
 

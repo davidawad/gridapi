@@ -8,14 +8,17 @@ use crate::error::{Error, Result};
 use crate::retry::RetryPolicy;
 use crate::transport::Transport;
 
-/// Default base URL of the keyless public API.
+/// Default base URL of the keyless public API (website-hosted; feature `miso-public-web`).
+#[cfg(feature = "miso-public-web")]
 pub const PUBLIC_API_BASE: &str = "https://public-api.misoenergy.org";
-/// Default base URL of the market report file host.
+/// Default base URL of the market report file host (website-hosted; feature `miso-public-web`).
+#[cfg(feature = "miso-public-web")]
 pub const REPORTS_BASE: &str = "https://docs.misoenergy.org/marketreports";
 /// Default base URL of the Data Exchange (API Management) gateway.
 #[cfg(feature = "miso-dataexchange")]
 pub const DATA_EXCHANGE_BASE: &str = "https://apim.misoenergy.org";
-/// Default base URL of the retired real-time data broker.
+/// Default base URL of the retired real-time data broker (feature `miso-public-web`).
+#[cfg(feature = "miso-public-web")]
 pub const DATA_BROKER_BASE: &str = "https://api.misoenergy.org/MISORTWDDataBroker";
 /// The environment variable [`ClientBuilder::api_key_from_env`] reads.
 #[cfg(feature = "miso-dataexchange")]
@@ -29,24 +32,34 @@ const DEFAULT_TIMEOUT: Duration = Duration::from_secs(60);
 /// Override them to point at a mirror, a proxy or a test server.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Endpoints {
-    /// Keyless public API (`/api/...`).
+    /// Keyless public API (`/api/...`). Feature `miso-public-web`.
+    #[cfg(feature = "miso-public-web")]
     pub public_api: String,
-    /// Market report files (`YYYYMMDD_da_expost_lmp.csv`, ...).
+    /// Market report files (`YYYYMMDD_da_expost_lmp.csv`, ...). Feature `miso-public-web`.
+    #[cfg(feature = "miso-public-web")]
     pub reports: String,
     /// Data Exchange gateway (needs an API key).
     #[cfg(feature = "miso-dataexchange")]
     pub data_exchange: String,
-    /// Retired real-time data broker.
+    /// Retired real-time data broker. Feature `miso-public-web`.
+    #[cfg(feature = "miso-public-web")]
     pub data_broker: String,
 }
 
+#[cfg_attr(
+    not(any(feature = "miso-public-web", feature = "miso-dataexchange")),
+    allow(clippy::derivable_impls)
+)]
 impl Default for Endpoints {
     fn default() -> Self {
         Self {
+            #[cfg(feature = "miso-public-web")]
             public_api: PUBLIC_API_BASE.to_owned(),
+            #[cfg(feature = "miso-public-web")]
             reports: REPORTS_BASE.to_owned(),
             #[cfg(feature = "miso-dataexchange")]
             data_exchange: DATA_EXCHANGE_BASE.to_owned(),
+            #[cfg(feature = "miso-public-web")]
             data_broker: DATA_BROKER_BASE.to_owned(),
         }
     }
@@ -54,13 +67,20 @@ impl Default for Endpoints {
 
 impl Endpoints {
     /// Point every host at one base URL (handy with a local test server).
+    #[cfg_attr(
+        not(any(feature = "miso-public-web", feature = "miso-dataexchange")),
+        allow(unused_variables)
+    )]
     pub fn all_at(base: &str) -> Self {
         let base = base.trim_end_matches('/');
         Self {
+            #[cfg(feature = "miso-public-web")]
             public_api: base.to_owned(),
+            #[cfg(feature = "miso-public-web")]
             reports: format!("{base}/marketreports"),
             #[cfg(feature = "miso-dataexchange")]
             data_exchange: base.to_owned(),
+            #[cfg(feature = "miso-public-web")]
             data_broker: format!("{base}/MISORTWDDataBroker"),
         }
     }
@@ -228,9 +248,11 @@ mod tests {
             "{}",
             b.user_agent
         );
+        #[cfg(feature = "miso-public-web")]
         assert_eq!(b.endpoints.public_api, PUBLIC_API_BASE);
     }
 
+    #[cfg(feature = "miso-public-web")]
     #[test]
     fn all_at_points_every_host_at_one_base() {
         let e = Endpoints::all_at("http://127.0.0.1:9/");
